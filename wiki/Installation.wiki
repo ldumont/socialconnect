@@ -1,4 +1,4 @@
-#summary Requierements and procedure.
+#summary Requirements and procedure.
 
 = Introduction =
 
