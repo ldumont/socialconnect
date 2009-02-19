@@ -2,7 +2,12 @@
 
 = Introduction =
 
-Add your content here.
+Any call to Facebook or OpenSocial REST API require an authentification. SocialContext does not follow the password anti-pattern but the custom Facebook login process and OAuth.
+
+
+For Facebook, the user is redirected to http://www.facebook.com/login.php where it must sign in and accept the Facebook application of the platform before coming back to the platform.
+
+For OpenSocial, the authentification is made through [http://oauth.net/ OAuth] as the OpenSocial specifications required. The workflow is roughly the same as with Facebook, the user is redirected to the OpenSocial container where he sign in and accept the OAuth token.
 
 
 = Details =
