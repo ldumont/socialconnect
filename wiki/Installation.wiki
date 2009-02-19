@@ -1,8 +1,14 @@
 #summary Requirements and procedure.
 
 = Introduction =
+SocialConnect is compatible with Python Django revision 9843 and Python 2.5.
 
-Add your content here.
+
+SocialConnect works using several external libraries:
+- pyFacebook (revision 173)
+- opensocial-restful 
+- restclient (version 0.9.9)
+- oauth (revision 868)
 
 
 = Details =
