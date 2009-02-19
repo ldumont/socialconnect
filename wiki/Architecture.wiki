@@ -1,4 +1,4 @@
-#summary Description of the application layers
+#summary Description of the application layers.
 = Introduction =
 
 Add your content here.
