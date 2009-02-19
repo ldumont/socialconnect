@@ -1,12 +1,12 @@
 #summary Description of the application layers.
 = Introduction =
 
-Add your content here.
+SocialConnect is separated in two layers:
+
+
+The Model layer has the model for platforms, accounts and deals with authentification. When the model layer validates a request it send it to the proxy layer whow send the request to the remote API.
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Platforms and Accounts
