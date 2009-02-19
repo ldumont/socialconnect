@@ -1,5 +1,7 @@
 #summary Description of the application layers.
 
+== Introduction ==
+
 SocialConnect is separated in two layers:
 
 
@@ -7,3 +9,5 @@ The Model layer has the model for platforms, accounts and deals with authentific
 
 
 == Platforms and Accounts ==
+=== Platforms ===
+The supported platforms are added through the Django admin. The current release comes with support for Facebook, MySpace and Partuza. The application key and secret are empty and must be completed.
