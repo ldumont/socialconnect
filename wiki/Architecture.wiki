@@ -1,5 +1,4 @@
 #summary Description of the application layers.
-= Introduction =
 
 SocialConnect is separated in two layers:
 
@@ -7,6 +6,4 @@ SocialConnect is separated in two layers:
 The Model layer has the model for platforms, accounts and deals with authentification. When the model layer validates a request it send it to the proxy layer whow send the request to the remote API.
 
 
-= Details =
-
-Platforms and Accounts
+== Platforms and Accounts ==
