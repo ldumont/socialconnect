@@ -1,8 +1,11 @@
 #summary Requirements and procedure.
 
 == Introduction ==
-SocialConnect is compatible with Python Django revision 9843 and Python 2.5.
+SocialConnect is compatible with Django revision 9843 and Python 2.5. It is available as a Django application installable in any Django project.
 
+SocialConnect uses models so you need to create the table with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
+
+To be able to communicate with the API of an external platform, SocialConnect needs an API key and secret. They are usually delivered by the platform, so you have to create a application on the developer wepage of the platform.
 
 
 == Requirements ==
