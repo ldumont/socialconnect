@@ -1,7 +1,7 @@
 #summary SocialConnect implementation example.
 
 == Introduction ==
-Yet Another Social Network (YASN) is a simple social platform using SocialConnect to communicate with Facebook and OpenSocial. It's packaged with SocialConnect and presented as a example of what SocialConnect can add to a social platform.
+Yet Another Social Network (YASN) is a simple social platform using SocialConnect to communicate with Facebook and OpenSocial. It's packaged with SocialConnect and presented as a example of what SocialConnect can add to a social platform. It is a good place to start to use SocialConnect.
 
 == Features ==
 YASN is a very simple platform but that perform basic tasks of any social platform. On YASN, users can create an account and a profile. They also can write small stories and comment them. 
