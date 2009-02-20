@@ -1,0 +1,13 @@
+#summary SocialConnect implementation example.
+
+= Introduction =
+
+[http://yasn.socialconnect.in Yet Another Social Network (YASN)] is a simple social network using SocialConnect to communicate with Facebook and OpenSocial.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
