@@ -8,6 +8,8 @@ YASN is a very simple platform but that perform basic tasks of any social platfo
 
 SocialConnect give YASN's users a quick way to fill their profile or find friends on the platform. They can retrieve them from Facebook or an OpenSocial platform very quickly. In addition, they also can notify their on an other platform when they write a story or a comment. Finally, they can also send invitation to their friends on an other platform.
 
+At this time, the support for those functionalities is not available for each platform as described by the picture below:
+
 [http://socialconnect.googlecode.com/files/application-schema.png]
 
 
