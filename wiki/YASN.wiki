@@ -13,5 +13,5 @@ At this time, the support for those functionalities is not available for each pl
 [http://socialconnect.googlecode.com/files/application-schema.png]
 
 
-== Online demo ==
-An online demo is available for a limited time [http://yasn.socialconnect.in here]. Feel free to register and tries it.
+== Online version ==
+An online version is available for a limited time [http://yasn.socialconnect.in here]. Feel free to register and tries it.
