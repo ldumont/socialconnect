@@ -1,6 +1,0 @@
-  * [SocialConnect SocialConnect]
-    * [Installation Installation]
-    * [Architecture Architecture]
-    * [AuthentificatonProcess Authentification Process]
-    * [Improvement Improvement]
-  * [YASN YASN]
