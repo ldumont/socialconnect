@@ -13,7 +13,7 @@ The supported platforms are added through the Django admin. The current release 
 
 
 == Make queries ==
-To make queries to an API, a view need two things. First it needs a decorator to deal with the possible exception raise by SocialConnect. Second, it needs to set a social context to make an API call.
+To make queries to an API, a view needs two things. First it needs a decorator to deal with the possible exception raise by SocialConnect. Second, it needs to set a social context to make an API call.
 
 This is an example of a view that get the current user profile from a remote platform:
 {{{
@@ -36,4 +36,4 @@ def get_profile(request, platform_id):
 	return direct_to_template(request, 'yasn/poc/profile.html', {'profile': profile_infos, 'platform_name': platform.name})
 }}}
 
-The `exception_handler` decorator is necessary to catch any exception that the API call `social_context.get_profile(request, 'get_profile', platform_id)` might raise. This could be related to an authentification issue, then the decorator will take the necessary steps to authorize the call. A redirection to the remote platform might be necessary. (See [Authorization authorization page in the wiki] for more details).
+The `exception_handler` decorator is necessary to catch any exception that the API call `social_context.get_profile(request, 'get_profile', platform_id)` might raise. This could be related to an authentification issue, then the decorator will take the necessary steps to authorize the call. A redirection to the remote platform might be necessary. (See [AuthentificationProcess authorization page in the wiki] for more details).
