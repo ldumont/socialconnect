@@ -1,13 +1,13 @@
 #summary Improve SocialConnect
 
-= Introduction =
+== Introduction ==
 
-Add your content here.
+SocialConnect is highly modular to allow addition of new functionalities. Support for new calls to the Facebook or OpenSocial APIs can added simply by writing two methods in the model layer and one in the proxy layer.
+
+The method in the model layer is responsible to first check if the remote platform supports the call and then check if the call is already authorized. The model layer then instantiate the correct proxy layer that will send the call to the API.
+
+This schema is the same for each functionality with minor difference.
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+=== Activities ===
+The main next improvement would be the support of activities for OpenSocial. Actually, activities can be notified only on Facebook.
