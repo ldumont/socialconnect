@@ -10,10 +10,9 @@ For OpenSocial, the authentification is made through [http://oauth.net/ OAuth] a
 
 
 == Behind the scene ==
-To be authorized, an API call needs to be sent with a correct session key. This key is obtained when the user is redirect to the remote platform. For Facebook, the key is a token that can be used to request a session key. For OpenSocial and OAuth, it is an authorized request token that is exchanged with an access token. The Facebook session key and the OpenSocial access token have a time validity and when they expire, the user needs to be redirected to the remote platform to get a new one. 
+To be authorized, an API call needs to be sent with a correct session key. This key is obtained when the user is redirect to the remote platform. For Facebook, the key is a token that can be used to request a session key. For OpenSocial and OAuth, it is an authorized "request token" that is exchanged with an "access token". The Facebook session key and the OpenSocial "access token" have a time validity and when they expire, the user needs to be redirected to the remote platform to get a new one. 
 
 The authorization is handled by the [Architecture Social Context]. The Social Context contains a communication object. This object is an instance of the communication library pyFacebook or home-made OpenSocial.
-
 
 If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail and the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platfom. Their the user authorizes the application and come back to the SocialConnect views with a new token. The token is first stored in the database and then used to create a new communication object. If necessary, an `PlatformAccount` is created. 
 
