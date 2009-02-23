@@ -35,3 +35,5 @@ def get_profile(request, platform_id):
 	
 	return direct_to_template(request, 'yasn/poc/profile.html', {'profile': profile_infos, 'platform_name': platform.name})
 }}}
+
+The `exception_handler` decorator is necessary to catch any exception that the API call `social_context.get_profile(request, 'get_profile', platform_id)` might raise.
