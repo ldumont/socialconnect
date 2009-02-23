@@ -40,5 +40,5 @@ def get_profile(request, platform_id):
 *Social Context*: The Social Context is the interface of SocialConnect: it contains the core logic of the application. Every call to a remote API needs one. The Social Context is a Python object that provide the methods to call a remote API and handle the API authorization.  
 
 The Social Context acts like a singleton because each user has his own instance. It contains a communication object that is an instance of the communication library (pyFacebook or home-made OpenSocial) with a remote platform. The Social Context is responsible to validate this communication object before executing the API query. (See [AuthentificationProcess authorization page in the wiki] for more details). If the call is authorized, it's send to the Proxy Layer that will execute the call to the remote platform.
- 
+
 *Exception decorator*: The `exception_handler` decorator is necessary to catch any exception  `social_context.get_profile(request, 'get_profile', platform_id)` might raise. This could be related to an authentification issue and then the decorator will redirect the user to the authorization page of the remote platform. 
