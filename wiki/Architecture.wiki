@@ -5,8 +5,33 @@
 SocialConnect is separated in two layers:
 
 
-The Model layer has the model for platforms, accounts and deals with authentification. When the model layer validates a request it send it to the proxy layer whow send the request to the remote API.
+The Model layer contains the models for remote platforms, accounts and deals with authentification. When the Model layer validates a request it send it to the Proxy layer whow send the request to the remote API.
 
 
 == Platforms and Accounts ==
 The supported platforms are added through the Django admin. The current release comes with support for Facebook, MySpace and Partuza. The application key and secret are empty and must be completed.
+
+
+== Make queries ==
+To make queries to an API, a view need two things. First it needs a decorator to deal with the possible exception raise by SocialConnect. Second, it needs to set a social context to make an API call.
+
+This is an example of a view that get the current user profile from a remote platform:
+{{{
+@login_required
+@exception_handler
+def get_profile(request, platform_id):
+	'''
+	View that get the user profile and display it without formatting.
+	'''
+	
+	# get the social context
+	social_context = SocialContext.get_or_create_social_context(request, platform_id)
+	
+	# get the remote paltform
+	platform = Platform.objects.get(id=platform_id)
+	
+	# get the profile from the remote platform
+	profile_infos = social_context.get_profile(request, 'get_profile', platform_id)
+	
+	return direct_to_template(request, 'yasn/poc/profile.html', {'profile': profile_infos, 'platform_name': platform.name})
+}}}
