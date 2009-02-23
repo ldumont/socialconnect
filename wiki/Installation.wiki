@@ -14,10 +14,10 @@ To be able to communicate with the API of an external platform, SocialConnect ne
 
 SocialConnect also requires several external libraries:
 
- * pyFacebook (revision 173)
- * opensocial-restful 
- * restclient (version 0.9.9)
- * oauth (revision 868)
+ * [http://pyfacebook.googlecode.com pyFacebook] (revision 173)
+ * [http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library]
+ * [http://microapps.sourceforge.net/restclient/ restclient] (version 0.9.9)
+ * [http://oauth.googlecode.com/ oauth] (revision 868)
 
 
 SocialConnect urls
