@@ -68,4 +68,20 @@ def send_notifications(self, uids, text, type='user_to_user'):
 }}}
 
 === Activities ===
-The main next improvement would be the support of activities for OpenSocial. Actually, activities can be notified only on Facebook. The OpenSocial 0.8 specifications for the REST API 
+The main next improvement would be the support of activities for OpenSocial. Actually, activities can be notified only on Facebook. The OpenSocial 0.8 specifications for the REST API.
+
+=== Profiles ===
+The actual matching of profile is very simple. A comparison between the ids of the user on the remote platform is done. This could be improved by  editing the matching function with a more complex matching.
+
+{{{
+		
+# Those are the matching function for friends. By default they only check the remote_id but they
+# can be improved to enable more specific matching. The only restriction is that they have to
+# return PlatformAccounts querysets.		
+def _get_matched_fb():
+return PlatformFBAccount.objects.filter(remote_id__in=proxy.get_friends(fields.values(), get_profiles=False), platform=self.current_platform)
+			
+def _get_matched_os():
+return PlatformOSAccount.objects.filter(remote_id__in=proxy.get_friends(fields.values(), get_profiles=False), platform=self.current_platform)
+		
+}}}
