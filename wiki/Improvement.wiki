@@ -85,3 +85,6 @@ def _get_matched_os():
 return PlatformOSAccount.objects.filter(remote_id__in=proxy.get_friends(fields.values(), get_profiles=False), platform=self.current_platform)
 		
 }}}
+
+=== XRDS-Simple ===
+At this time, adding a platform in the system is made through the django admin. This process requires to provide a lot of information about the platform, such as URLs. Using XRDS-Simple, the process might be more simple and automatically updated to change in the platform URLs.
