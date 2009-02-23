@@ -39,13 +39,6 @@ def get_profile(request, platform_id):
 
 *Social Context*: The Social Context is the interface of SocialConnect: it contains the core logic of the application. Every call to a remote API needs one. The Social Context is a Python object that provide the methods to call a remote API and handle the API authorization.  
 
-The Social Context acts like a singleton because each user has his own instance. It contains a communication object that is an instance of the communication library (pyFacebook or home-made OpenSocial) with a remote platform. The Social Context is responsible to validate this communication object before executing the API query. If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail. The validation will first try to create a new object using the session information from a previous request stored in the database. If no information is available, the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platform to get the necessary information to build a new communication object.
-
-[http://socialconnect.googlecode.com/files/comObject-validation.png]
-
-To be valid, the communication object needs to have an authorized session to the remote platform. For Facebook, the object has a token that it used to get a session key that is send with the request. For OpenSocial, the object has an access token that might directly be used to query the platform. In both cases, the session has a limited validity in time. So the Social Context need to check if the session is still valid and possibly request a new session from the platform. This is addressed by a redirection of the user to the remote platform to obtain a fresh token. Then the user is redirected back to special SocialConnect views that ...
-
+The Social Context acts like a singleton because each user has his own instance. It contains a communication object that is an instance of the communication library (pyFacebook or home-made OpenSocial) with a remote platform. The Social Context is responsible to validate this communication object before executing the API query. (See [AuthentificationProcess authorization page in the wiki] for more details). If the call is authorized, it's send to the Proxy Layer that will execute the call to the remote platform.
  
-
-
-*Exception decorator*: The `exception_handler` decorator is necessary to catch any exception  `social_context.get_profile(request, 'get_profile', platform_id)` might raise. This could be related to an authentification issue, then the decorator will take the necessary steps to authorize the call. A redirection to the remote platform might be necessary. (See [AuthentificationProcess authorization page in the wiki] for more details).
+*Exception decorator*: The `exception_handler` decorator is necessary to catch any exception  `social_context.get_profile(request, 'get_profile', platform_id)` might raise. This could be related to an authentification issue and then the decorator will redirect the user to the authorization page of the remote platform. 
