@@ -12,12 +12,12 @@ Model layer:
 {{{
 def get_profile(self, request, callback, *args):
 	'''
-		Entry point for the profile getter. It validate the social context (synchronization, com_object, token) before making the call.
+	Entry point for the profile getter. It validate the social context (synchronization, com_object, token) before making the call.
 
-		Params:
-			request: the django http request
-			callback: the view to callback if an RedirectException occurs
-			args: any args for the callback view
+	Params:
+		request: the django http request
+		callback: the view to callback if an RedirectException occurs
+		args: any args for the callback view
 	'''
 		
 	# check if the platform supports the call
@@ -31,7 +31,7 @@ def get_profile(self, request, callback, *args):
 
 def _get_profile(self):
 	'''
-		Private method that instanciate the correct Proxy and call the api
+	Private method that instanciate the correct Proxy and call the api
 	'''
 
 	fields = self.current_platform.get_fields()
