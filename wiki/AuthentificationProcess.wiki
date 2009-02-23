@@ -9,10 +9,3 @@ For Facebook, the user is redirected to http://www.facebook.com/login.php where 
 
 For OpenSocial, the authentification is made through [http://oauth.net/ OAuth] as the OpenSocial specifications required. The workflow is roughly the same as with Facebook, the user is redirected to the OpenSocial container where he sign in and accept the OAuth token.
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
