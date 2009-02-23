@@ -10,10 +10,13 @@ For OpenSocial, the authentification is made through [http://oauth.net/ OAuth] a
 
 
 == Behind the scene ==
-To be authorized, a call need to be sent with a correct session key. This key is obtained when the user is redirect to the request platform. For Facebook, the key is a token that can be used to request a session key. For OpenSocial and OAuth, it is an authorized request token that is exchanged with an access token. The Facebook session key and the OpenSocial access token have a time validity and when they expire, the user needs to be redirected to the remote platform to get a new one. A communication object can then be instantiated using it.
+To be authorized, an API call need to be sent with a correct session key. This key is obtained when the user is redirect to the request platform. For Facebook, the key is a token that can be used to request a session key. For OpenSocial and OAuth, it is an authorized request token that is exchanged with an access token. The Facebook session key and the OpenSocial access token have a time validity and when they expire, the user needs to be redirected to the remote platform to get a new one. 
 
-The authorization is handled by the [Architecture Social Context]. If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail. The validation will first try to create a new object using the session information from a previous request stored in the database. If no information is available, the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platform to get the necessary information to build a new communication object.
+The authorization is handled by the [Architecture Social Context]. The Social Context contains a communication object. This object is an instance of the communication library pyFacebook or home-made OpenSocial.
+
+
+If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail and the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platfom. Their the user authorizes the application and come back to the SocialConnect views with a new token. The token is first stored in the database and then used to create a new communication object. If necessary, an `PlatformAccount` is created. 
+
+Finally the user is redirected back to the view that initiated the call and the view will try again the call with a valid Social Context.
 
 [http://socialconnect.googlecode.com/files/comObject-validation.png]
-
-To be valid, the communication object needs to have an authorized session to the remote platform. For Facebook, the object has a token that it used to get a session key that is send with the request. For OpenSocial, the object has an access token that might directly be used to query the platform. In both cases, the session has a limited validity in time. So the Social Context need to check if the session is still valid and possibly request a new session from the platform. This is addressed by a redirection of the user to the remote platform to obtain a fresh token. Then the user is redirected back to a SocialConnect views that will store the authentification information from the remote platform and possibly create an ´Account´ for the user. The view does not display anything but finally redirect the user to the original view where the call can be done again.
