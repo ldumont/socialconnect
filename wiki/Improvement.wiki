@@ -4,9 +4,48 @@
 
 SocialConnect is highly modular to allow addition of new functionalities. Support for new calls to the Facebook or OpenSocial APIs can added simply by writing two methods in the model layer and one in the proxy layer.
 
-The method in the model layer is responsible to first check if the remote platform supports the call and then check if the call is already authorized. The model layer then instantiate the correct proxy layer that will send the call to the API.
+The method in the model layer is responsible to first check if the remote platform supports the call and then check if the call is authorized. The model layer then instantiate the correct proxy layer that will send the call to the API.
 
-This schema is the same for each functionality with minor difference.
+This schema is the same for each functionality with minor differences.
+
+Model layer:
+{{{
+def get_profile(self, request, callback, *args):
+		'''
+			Entry point for the profile getter. It validate the social context (synchronization, com_object, token) before making the call.
+
+			Params:
+				request: the django http request
+				callback: the view to callback if an RedirectException occurs
+				args: any args for the callback view
+		'''
+		
+		# check if the platform supports the call
+		if not self.current_platform.support_people:
+			raise NotSupportedException()
+			
+		# validate of the context, then call
+		if self._validate_context(request, callback, args):
+			return self._get_profile()
+			
+
+	def _get_profile(self):
+		'''
+			Private method that instanciate the correct Proxy and call the api
+		'''
+
+		fields = self.current_platform.get_fields()
+		
+		if self.current_platform.__class__ == FBPlatform: 
+			proxy = FBRequestProxy(self.com_object)
+		else:	
+			proxy = OSRequestProxy(self.com_object)	
+
+
+		return self.current_platform.build_profiles(fields, proxy.get_profile(fields.values()))[0]
+
+
+}}}
 
 
 === Activities ===
