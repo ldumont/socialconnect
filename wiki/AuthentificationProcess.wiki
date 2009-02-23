@@ -1,15 +1,18 @@
 #summary The authentification with Facebook and OAuth.
 
-= Introduction =
+== Introduction ==
 
 Any call to Facebook or OpenSocial REST API require an authentification. SocialContext does not follow the password anti-pattern but the custom Facebook login process and OAuth.
-
 
 For Facebook, the user is redirected to http://www.facebook.com/login.php where it must sign in and accept the Facebook application of the platform before coming back to the platform.
 
 For OpenSocial, the authentification is made through [http://oauth.net/ OAuth] as the OpenSocial specifications required. The workflow is roughly the same as with Facebook, the user is redirected to the OpenSocial container where he sign in and accept the OAuth token.
 
-If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail. The validation will first try to create a new object using the session information from a previous request stored in the database. If no information is available, the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platform to get the necessary information to build a new communication object.
+
+== Behind the scene ==
+To be authorized, a call need to be sent with a correct session key. This key is obtained when the user is redirect to the request platform. For Facebook, the key is a token that can be used to request a session key. For OpenSocial and OAuth, it is an authorized request token that is exchanged with an access token. The Facebook session key and the OpenSocial access token have a time validity and when they expire, the user needs to be redirected to the remote platform to get a new one. A communication object can then be instantiated using it.
+
+The authorization is handled by the [Architecture Social Context]. If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail. The validation will first try to create a new object using the session information from a previous request stored in the database. If no information is available, the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platform to get the necessary information to build a new communication object.
 
 [http://socialconnect.googlecode.com/files/comObject-validation.png]
 
