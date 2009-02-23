@@ -42,7 +42,7 @@ def get_profile(request, platform_id):
 The Social Context acts like a singleton because each user has his own instance. It contains a communication object that is an instance of the communication library (pyFacebook or home-made OpenSocial) with a remote platform. The Social Context is responsible to validate this communication object before executing the API query. If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail. The validation will first try to create a new object using the session information from a previous request stored in the database. If no information is available, the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platform to get the necessary information to build a new communication object.
 
 The process is the following:
-[http://socialconnect.googlecode.com/files/comObject-valdiation.png]
+[http://socialconnect.googlecode.com/files/comObject-validation.png]
 
 If it can't, it raise an exception. To be valid, the communication object needs to have an authorized session to the remote platform. For Facebook, the object has a token that it used to get a session key that is send with the request. For OpenSocial, the object has an access token that might directly be used to query the platform. In both cases, the session has a limited validity in time. So the Social Context need to check if the session is still valid and possibly request a new session from the platform. This is addressed by a redirection of the user to the remote platform to obtain a fresh token.
 
