@@ -37,3 +37,5 @@ def get_profile(request, platform_id):
 }}}
 
 The `exception_handler` decorator is necessary to catch any exception that the API call `social_context.get_profile(request, 'get_profile', platform_id)` might raise. This could be related to an authentification issue, then the decorator will take the necessary steps to authorize the call. A redirection to the remote platform might be necessary. (See [AuthentificationProcess authorization page in the wiki] for more details).
+
+*Social Context*: The Social Context is the interface for SocialConnect. Every call to a remote API first needs a Social Context. This is a Python object that provide the method to call a remote API. It also manage all the authorization information and raise the related Exception in case of error.
