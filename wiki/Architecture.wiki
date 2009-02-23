@@ -27,7 +27,7 @@ def get_profile(request, platform_id):
 	# get the social context
 	social_context = SocialContext.get_or_create_social_context(request, platform_id)
 	
-	# get the remote paltform
+	# get the remote platform
 	platform = Platform.objects.get(id=platform_id)
 	
 	# get the profile from the remote platform
