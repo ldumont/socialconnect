@@ -3,9 +3,11 @@
 == Introduction ==
 SocialConnect is available as a Django application installable in any Django project.
 
-SocialConnect uses models so you need to create the table with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
+SocialConnect uses database for storage so you need to create the table with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
 
-To be able to communicate with the API of an external platform, SocialConnect needs an API key and secret. They are usually delivered by the platform, so you have to create a application on the developer wepage of the platform.
+To be able to communicate with the API of an external platform, SocialConnect needs an API key and secret. They are usually delivered by the platform, so you have to create a application on the developer webpage of the platform.
+
+So to be able to use SocialConnect with Facebook, MySpace and Partuza, you first have to create an application on each of those platforms to get an API key and secret. Then you have to use the Django admin to complete the information for these platforms.
 
 
 == Requirements ==
@@ -15,7 +17,7 @@ To be able to communicate with the API of an external platform, SocialConnect ne
 SocialConnect also requires several external libraries:
 
  * [http://pyfacebook.googlecode.com pyFacebook] (revision 173)
- * [http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library]
+ * [http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library] (last revision)
  * [http://microapps.sourceforge.net/restclient/ restclient] (version 0.9.9)
  * [http://oauth.googlecode.com/ oauth] (revision 868)
 
