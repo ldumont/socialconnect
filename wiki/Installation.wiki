@@ -22,4 +22,13 @@ SocialConnect also requires several external libraries:
  * [http://oauth.googlecode.com/ oauth] (revision 868)
 
 
-SocialConnect urls
+== SocialConnect views ==
+Despite the fact that SocialConnect doesn't display anything to users directly, it has some views that need to be accessible. Those views are the callback view after a redirection to a remote platform. So in the urls.py file of your project, you have to add access to the SocialConnect view:
+
+{{{
+urlpatterns = patterns('',
+   	url(r'^admin/(.*)', admin.site.root),
+	(r'^socialconnect/', include('portabilitytest.socialconnect.urls')),
+	(r'^yasn/', include('portabilitytest.yasn.urls')),			
+)
+}}}
