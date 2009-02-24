@@ -11,6 +11,9 @@ INSTALLED_APPS = (
 )
 }}}
 
+Also add the constant to define with model describe the user profile of your platform:
+{{{AUTH_PROFILE_MODULE = 'accounts.UserProfile'}}} 
+
 
 SocialConnect uses database for storage so you need to create the table with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
 
