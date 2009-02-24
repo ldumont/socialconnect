@@ -1,7 +1,16 @@
 #summary Requirements and procedure.
 
 == Introduction ==
-SocialConnect is available as a Django application installable in any Django project.
+SocialConnect is available as a Django application. First install it in your project by adding the application in your settings.py:
+
+{{{
+INSTALLED_APPS = (
+    [...],	
+    'socialconnect',
+    [...],
+)
+}}}
+
 
 SocialConnect uses database for storage so you need to create the table with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
 
@@ -32,3 +41,5 @@ urlpatterns = patterns('',
 	(r'^yasn/', include('portabilitytest.yasn.urls')),			
 )
 }}}
+
+== API Calls ==
