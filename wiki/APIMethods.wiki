@@ -1,12 +1,7 @@
 #summary Methods Footprint to query the API
-= Introduction =
+== Introduction ==
+This section describes the available methods of the `SocialContext` object.
 
-Add your content here.
+== Methods ==
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
