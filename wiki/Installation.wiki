@@ -11,7 +11,7 @@ INSTALLED_APPS = (
 )
 }}}
 
-Also add the constant to define with model describe the user profile of your platform:
+Also in the same file add the constant to define which model describes the user profile of your platform:
 `AUTH_PROFILE_MODULE = 'apps.model'`
 
 
@@ -47,3 +47,8 @@ urlpatterns = patterns('',
 }}}
 
 == API Calls ==
+The last step before making a call is to add the SocialConnect models and the decorator:
+{{{
+from socialconnect.models import SocialContext, PlatformAccount, Platform
+from socialconnect.utils.decorators import exception_handler
+}}}
