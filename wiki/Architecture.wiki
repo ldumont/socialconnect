@@ -11,9 +11,11 @@ The Model layer contains the models used to store remote platforms information a
 == Platforms and Accounts ==
 The supported platforms are added through the Django admin. The current release comes with support for Facebook, MySpace and Partuza. The application key and secret are empty and must be completed.
 
+For a user that send a query to a remote platform, SocialConnect creates a local `PlatformAccount` to store the id of the user on the remote platform as well as his session information. The only data from the remote platform that is automatically stored is the user id.
+
 
 == Make queries ==
-To make queries to an API, a view needs two things. First it needs a decorator to deal with the possible exception raise by SocialConnect. Second, it needs to set a social context to make an API call.
+To make queries to an API, a view needs two things. First it needs a decorator to deal with the possible exception raised by SocialConnect. Second, it needs to set a social context to make an API call.
 
 This is an example of a view that get the current user profile from a remote platform:
 {{{
