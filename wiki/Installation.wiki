@@ -23,7 +23,7 @@ So to be able to use SocialConnect with Facebook, MySpace and Partuza, you first
 
 
 == Requirements ==
- * Python 2.5
+ * Python 2.5 with [http://www.pythonware.com/products/pil/ PIL]
  * Django revision 9843
 
 SocialConnect also requires several external libraries:
