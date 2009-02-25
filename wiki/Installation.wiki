@@ -28,7 +28,7 @@ So to be able to use SocialConnect with Facebook, MySpace and Partuza, you first
 
 SocialConnect also requires several external libraries:
  * Python libs:
-   * [http://pypi.python.org/pypi/simple_json/1.1 simple_json] `easy_install simple_json`
+   * [http://pypi.python.org/pypi/simple_json/1.1 simple_json] `easy_install simple_json` (version 1.1)
    * [http://microapps.sourceforge.net/restclient/ restclient] (version 0.9.9) `easy_install restclient`
 
  * Django libs:
