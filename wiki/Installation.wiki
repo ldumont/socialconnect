@@ -55,3 +55,6 @@ The last step before making a call is to add the SocialConnect models and the de
 from socialconnect.models import SocialContext, PlatformAccount, Platform
 from socialconnect.utils.decorators import exception_handler
 }}}
+
+== YASN Installation ==
+templates facebook
