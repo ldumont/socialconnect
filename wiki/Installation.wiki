@@ -30,6 +30,7 @@ SocialConnect also requires several external libraries:
  * Python libs:
    * [http://pypi.python.org/pypi/simple_json/1.1 simple_json] `easy_install simple_json`
    * [http://microapps.sourceforge.net/restclient/ restclient] (version 0.9.9) `easy_install restclient`
+
  * Django libs:
    * [http://pyfacebook.googlecode.com pyFacebook] (revision 173) `svn checkout http://pyfacebook.googlecode.com/svn/trunk/facebook facebook` 
    * [http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library] (last revision) `svn checkout http://opensocial-python-rest-library.googlecode.com/svn/trunk/ opensocial`         
