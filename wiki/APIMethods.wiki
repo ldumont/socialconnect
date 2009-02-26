@@ -4,8 +4,10 @@ This section describes the available methods of the `SocialContext` object.
 
 == Methods ==
 _def get_or_create_social_context(request, platform_id=None)_
-This static method first try to get a Social Context from the user session. If it doesn't find one, it create a new one. This platform_id is optional and should be omitted only when the 
-Static method
+This static method tries to get a Social Context from the user session. If none is found, it creates a new one with the platform_id.
+
+The platform_id is optional and should be omitted only when there is no doubt that a `Social Context` instance is in the user session. Otherwise, an `Exception` is raised.
+
 
 
 _def get_platforms(request, task)_
