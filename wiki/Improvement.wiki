@@ -2,11 +2,11 @@
 
 == Introduction ==
 
-SocialConnect is highly modular to allow addition of new functionalities. Support for new calls to the Facebook or OpenSocial APIs can added simply by writing two methods in the model layer and two in the proxy layer (one for Facebook and one for OpenSocial). In addition the library that execute the call need to be changed as well. 
+SocialConnect is highly modular to allow addition of new functionalities. Support for new calls to the Facebook or OpenSocial APIs can added simply by writing two methods in the model layer and two in the proxy layer (one for Facebook and one for OpenSocial). In addition the library that execute the call needs to be changed as well. 
 
-For Facebook, the library (pyFacebook) is up-to-date with the Facebook API and is updated when new calls are available. So here nothing is normally needed.
+For Facebook, the library ([http://pyfacebook.googlecode.com pyFacebook]) is up-to-date with the Facebook API and is updated when new calls are available. So here nothing is normally needed.
 
-For OpenSocial, the library shipped with SocialConnect need to be updated with the new call.
+For OpenSocial, the library ([http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library]) shipped with SocialConnect needs to be updated with the new call.
 
 == Details ==
 
