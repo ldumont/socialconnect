@@ -10,9 +10,9 @@ For OpenSocial, the library ([http://opensocial-python-rest-library.googlecode.c
 
 == Details ==
 
-The method in the model layer is responsible to first check if the remote platform supports the call and then check if the call is authorized. The model layer then instantiate the correct proxy layer that will send the call to the API.
+The methods in the model layer are responsible to first check if the remote platform supports the call and then check if the call is authorized. The model layer then instantiate the correct proxy layer that will send the call to the API.
 
-This schema is the same for each functionality with minor differences.
+This schema is the same for each functionality, with minor differences.
 
 *Model layer:*
 {{{
