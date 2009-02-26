@@ -8,7 +8,7 @@ For Facebook, the library ([http://pyfacebook.googlecode.com pyFacebook]) is up-
 
 For OpenSocial, the library ([http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library]) might not be updated. Go to the project page and propose new features or patches if needed.
 
-== Details ==
+== New calls ==
 
 The methods in the model layer are responsible to first check if the remote platform supports the call and then check if the call is authorized. The model layer then instantiate the correct proxy layer that will send the call to the API.
 
