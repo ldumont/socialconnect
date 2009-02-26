@@ -16,28 +16,28 @@ This static method returns the list of platforms that support a specific task. T
 
 
 
-_def remove_subscription(request, platform_id)_
+*_def remove_subscription(request, platform_id)_*
 
 
 
-_def synch_account(self, request, callback, `*`args)_
+*_def synch_account(self, request, callback, `*`args)_*
 
 
 
-_def get_profile(self, request, callback, `*`args)_
+*_def get_profile(self, request, callback, `*`args)_*
 
 
 
-_def get_friends(self, request, callback, matched, `*`args)_
+*_def get_friends(self, request, callback, matched, `*`args)_*
 
 
 
-_def get_groups(self, request, callback, `*`args)_
+*_def get_groups(self, request, callback, `*`args)_*
 
 
 
-_def publish_user_action(self, request, callback, template_id, template_data, target_ids=None, `*`args)_
+*_def publish_user_action(self, request, callback, template_id, template_data, target_ids=None, `*`args)_*
 
 
 
-_def send_notifications(self, request, callback, user_ids, text, `*`args)_
+*_def send_notifications(self, request, callback, user_ids, text, `*`args)_*
