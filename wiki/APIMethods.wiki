@@ -3,33 +3,38 @@
 This section describes the available methods of the `SocialContext` object.
 
 == Methods ==
+
+=== Utilities ===
 *_def get_or_create_social_context(request, platform_id=None)_*
 
 This static method tries to get a Social Context from the user session. If none is found, it creates a new one with the platform_id.
 
 The platform_id is optional and should be omitted only when there is no doubt that a `SocialContext` instance is in the user session. Otherwise, an `Exception` is raised.
 
-
 *_def get_platforms(request, task)_*
 
-This static method returns the list of platforms that support a specific task. The tasks supported by a platform are set in the Django admin. They can be 'people', 'groups', 'activities_push', 'activities_pull', 'notifications'.
-
+This static method returns the list of platforms that support a specific task. The tasks supported by a platform are set in the Django admin. They can be 'people', 'groups', 'activities_push', 'activities_pull' or 'notifications'.
 
 
 *_def remove_subscription(request, platform_id)_*
 
+This static method can be used to remove the link between a local user and his remote account on a remote platform. This method also destroy the Social Context if it's related to this platform.
 
 
 *_def synch_account(self, request, callback, `*`args)_*
 
+This method simply synchronize a user local account with a remote account on a remote platform. It just call the `_validation_context()´ method to obtains a session with the remote platform.
 
 
+=== API Calls ===
 *_def get_profile(self, request, callback, `*`args)_*
 
+This methods return a `Profile` object created with the data of the user's profile from the remote platform.
 
 
 *_def get_friends(self, request, callback, matched, `*`args)_*
 
+This methods return a list of friends. If `matched` equals `False`, they are `Profile` object build from the remote data. If not, a matching on users ids is executed to retrieve only the friends that are on the local platform. In this case, a list of `PlatformAccount` is retrieved.
 
 
 *_def get_groups(self, request, callback, `*`args)_*
