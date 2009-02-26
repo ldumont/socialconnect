@@ -45,7 +45,7 @@ This method returns the list of the user's groups on the remote platform.
 
 *_def publish_user_action(self, request, callback, template_id, template_data, target_ids=None, `*`args)_*
 
-This method publishes an activity in the user Facebook wall. `template_id` must be the id of a template registered on Facebook and `template_data` the data to fill the template. `target_ids` can be a list of Facebook user ids if the template uses the {*target*) tag.
+This method publishes an activity in the user Facebook wall. `template_id` must be the id of a template registered on Facebook and `template_data` the data to fill the template. `target_ids` can be a list of Facebook user ids if the template uses the {`*`target`*`) tag.
 
 
 *_def send_notifications(self, request, callback, user_ids, text, `*`args)_*
