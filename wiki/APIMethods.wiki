@@ -3,21 +3,20 @@
 This section describes the available methods of the `SocialContext` object.
 
 == Methods ==
-@staticmethod
-def get_or_create_social_context(request, platform_id=None)
+_def get_or_create_social_context(request, platform_id=None)_
+Static method
 
-@staticmethod
-def get_platforms(request, task)
+_def get_platforms(request, task)_
+Static method
 
-@staticmethod
-def remove_subscription(request, platform_id):
+_def remove_subscription(request, platform_id)_
 
-def synch_account(self, request, callback, *args):
+_def synch_account(self, request, callback, `*`args)_
 
-def get_profile(self, request, callback, *args):
+_def get_profile(self, request, callback, `*`args)_
 
-def get_friends(self, request, callback, matched, *args):
+_def get_friends(self, request, callback, matched, `*`args)_
 
-def get_groups(self, request, callback, *args):
+_def get_groups(self, request, callback, `*`args)_
 
-def publish_user_action(self, request, callback, template_id, template_data, target_ids=None, *args):
+_def publish_user_action(self, request, callback, template_id, template_data, target_ids=None, `*`args)_
