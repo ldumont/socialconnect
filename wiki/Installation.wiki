@@ -57,4 +57,8 @@ from socialconnect.utils.decorators import exception_handler
 }}}
 
 == YASN Installation ==
-templates facebook
+If you plan to install YASN to test it and play with the code, they are some adjustments required. First of all, the computer running YASN should be directly reachable from the Internet. This is mandatory because the authorization processes will redirect the users to remote platforms and these platforms need URL to redirect the users back to YASN. So on a web server there should be no problem, but on your home computer you will probably need to configure your router.
+
+Then as mentioned above, you 'll have to create an application on Facebook, MySpace and an account on Partuza to get the necessary API keys and secrets.
+
+Then you have to configure your server to make it work..
