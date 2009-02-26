@@ -4,9 +4,9 @@
 
 SocialConnect is highly modular to allow addition of new functionalities. Support for new calls to the Facebook or OpenSocial APIs can added simply by writing two methods in the model layer and two in the proxy layer (one for Facebook and one for OpenSocial). In addition the library that execute the call needs to be changed as well. 
 
-For Facebook, the library ([http://pyfacebook.googlecode.com pyFacebook]) is up-to-date with the Facebook API and is updated when new calls are available. So here nothing is normally needed.
+For Facebook, the library ([http://pyfacebook.googlecode.com pyFacebook]) is up-to-date with the Facebook API and is normally updated when new calls are available. So here nothing is normally needed.
 
-For OpenSocial, the library ([http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library]) shipped with SocialConnect needs to be updated with the new call.
+For OpenSocial, the library ([http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library]) might not be updated. Go to the project page and propose new features.
 
 == Details ==
 
@@ -93,3 +93,6 @@ At this time, adding a platform in the system is made through the django admin. 
 
 === Request batching ===
 Facebook provide an API to batch requests in one single call. For efficiency, SocialConnect might take advantage of this API. 
+
+=== OpenSocial library ===
+The OpenSocial library used with SocialConnect was developed only for SocialConnect and is maybe not the best library available. A interesting project recently became available [http://code.google.com/p/opensocial-python-client/ opensocial-python-client]. SocialConnect might be modified to use it.
