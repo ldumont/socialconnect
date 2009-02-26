@@ -49,3 +49,5 @@ This method publishes an activity in the user Facebook wall. `template_id` must 
 
 
 *_def send_notifications(self, request, callback, user_ids, text, `*`args)_*
+
+This method sends a notification to a list of users on Facebook. `user_ids` contains the Facebook user ids and `text` the text to send. Links can be added in the notification using the HTML `a` tag.
