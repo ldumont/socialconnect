@@ -39,8 +39,6 @@ _def publish_user_action(self, request, callback, template_id, template_data, ta
 
 ----
 
-_def send_notifications(self, request, callback, user_ids, text, *args)_
+_def send_notifications(self, request, callback, user_ids, text, `*`args)_
 
 ----
-
-
