@@ -11,6 +11,7 @@ This static method tries to get a Social Context from the user session. If none 
 
 The platform_id is optional and should be omitted only when there is no doubt that a `SocialContext` instance is in the user session. Otherwise, an `Exception` is raised.
 
+
 *_def get_platforms(request, task)_*
 
 This static method returns the list of platforms that support a specific task. The tasks supported by a platform are set in the Django admin. They can be 'people', 'groups', 'activities_push', 'activities_pull' or 'notifications'.
@@ -23,26 +24,28 @@ This static method can be used to remove the link between a local user and his r
 
 *_def synch_account(self, request, callback, `*`args)_*
 
-This method simply synchronize a user local account with a remote account on a remote platform. It just call the `_validation_context()´ method to obtains a session with the remote platform.
+This method simply synchronizes a user local account with a remote account on a remote platform. It just call the `_validation_context()´ method to obtains a session with the remote platform.
 
 
 === API Calls ===
 *_def get_profile(self, request, callback, `*`args)_*
 
-This methods return a `Profile` object created with the data of the user's profile from the remote platform.
+This method returns a `Profile` object created with the data of the user's profile from the remote platform.
 
 
 *_def get_friends(self, request, callback, matched, `*`args)_*
 
-This methods return a list of friends. If `matched` equals `False`, they are `Profile` object build from the remote data. If not, a matching on users ids is executed to retrieve only the friends that are on the local platform. In this case, a list of `PlatformAccount` is retrieved.
+This method returns a list of friends. If `matched` equals `False`, they are `Profile` objects built from the remote data. If not, a matching on user ids is made to retrieve only the friends that are on the local platform. In this case, a list of `PlatformAccount` is returned.
 
 
 *_def get_groups(self, request, callback, `*`args)_*
 
+This method returns the list of the user's groups on the remote platform. 
 
 
 *_def publish_user_action(self, request, callback, template_id, template_data, target_ids=None, `*`args)_*
 
+This method publishes an activity in the user Facebook wall. `template_id` must be the id of a template registered on Facebook and `template_data` the data to fill the template. `target_ids` can be a list of Facebook user ids if the template uses the {*target*) tag.
 
 
 *_def send_notifications(self, request, callback, user_ids, text, `*`args)_*
