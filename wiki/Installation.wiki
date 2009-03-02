@@ -44,9 +44,8 @@ Despite the fact that SocialConnect doesn't display anything to users directly, 
 {{{
 urlpatterns = patterns('',
    	url(r'^admin/(.*)', admin.site.root),
-	(r'^socialconnect/', include('portabilitytest.socialconnect.urls')),
-	(r'^yasn/', include('portabilitytest.yasn.urls')),			
-)
+	(r'^socialconnect/', include('socialconnect.urls')),
+	(r'^', include('yasn.urls')),	
 }}}
 
 == API Calls ==
