@@ -67,3 +67,5 @@ LOGIN_URL = '/login/'
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 25
+
+Add socialconnect urls inurl.px
