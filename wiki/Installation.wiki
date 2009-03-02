@@ -62,5 +62,9 @@ If you plan to install YASN to test it and play with the code, they are some adj
 Then as mentioned above, you 'll have to create an application on Facebook, MySpace and an account on Partuza to get the necessary API keys and secrets.
 
 Then you have to configure your server to make it work..
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
-Activate django.core.context_processors.media 
+LOGIN_URL = '/login/'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
