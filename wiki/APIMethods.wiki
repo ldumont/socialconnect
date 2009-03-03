@@ -15,7 +15,12 @@ The platform_id is optional and should be omitted only when there is no doubt th
 
 *_def get_platforms(request, task)_*
 
-This static method returns the list of platforms that support a specific task. The tasks supported by a platform are set in the Django admin. They can be 'people', 'groups', 'activities_push', 'activities_pull' or 'notifications'.
+This static method returns the list of platforms that support a specific task. The tasks supported by a platform are set in the Django admin.
+ * Parameters:
+   * _task_: the concerned task. Can be 'people', 'groups', 'activities_push', 'activities_pull' or 'notifications'.
+
+ * Return:
+   * a mixed list of `FBPlatform` and `OSPlatform`.
 
 
 *_def remove_subscription(request, platform_id)_*
