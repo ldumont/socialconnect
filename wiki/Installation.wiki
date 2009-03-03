@@ -23,9 +23,9 @@ SocialConnect also requires several external libraries:
 Install them as usual and be sure that they are available within your Django project.
 
 == Installation ==
-First install it in your project by adding the application in your settings.py:
+ * Install SocialConnect in your project's settings.py file:
 
-{{{
+{{{ 
 INSTALLED_APPS = (
     [...],	
     'socialconnect',
@@ -33,21 +33,20 @@ INSTALLED_APPS = (
 )
 }}}
 
-In the same file, add a constant to define which model describes the user profile of your platform:
-`AUTH_PROFILE_MODULE = 'apps.model'`
+ * In the same file, add a constant to define which model describes the user profile of your platform:
+   * `AUTH_PROFILE_MODULE = 'apps.model'`
 
-SocialConnect uses database for storage so you need to create the database tables with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
-
+ * Create the SocialConnect database tables by running `manage.py syncdb`.
 
 
 ==== SocialConnect views ====
-Despite the fact that SocialConnect doesn't display anything to users directly, it has some views that need to be accessible. Those views are the callback view after a redirection to a remote platform. So in the urls.py file of your project, you have to add access to the SocialConnect view:
+Despite the fact that SocialConnect doesn't display anything to users directly, it has some views that need to be accessible. Those views are the callback views after a redirection to a remote platform. So in the urls.py file of your project, you have to add access to the SocialConnect view:
 
 {{{
 urlpatterns = patterns('',
-   	url(r'^admin/(.*)', admin.site.root),
+   	[...]
 	(r'^socialconnect/', include('socialconnect.urls')),
-	(r'^', include('yasn.urls')),	
+        [...]
 }}}
 
 ==== Platform applications ====
@@ -75,5 +74,7 @@ YASN needs some specific definition in the settings of the project:
  * YASN send emails for password recovery, so don't forget to setup a SMTP server for Django (example below):
    * EMAIL_HOST = 'localhost'
    * EMAIL_PORT = 25
+
+
 
  * Configure your `urls.py` according to your project. 
