@@ -14,7 +14,7 @@ INSTALLED_APPS = (
 Also in the same file add the constant to define which model describes the user profile of your platform:
 `AUTH_PROFILE_MODULE = 'apps.model'`
 
-SocialConnect use some views so add them to your root urls.py:
+SocialConnect uses some views so add them to your root urls.py:
 `(r'^socialconnect/', include('socialconnect.urls'))`
 
 SocialConnect uses database for storage so you need to create the table with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
