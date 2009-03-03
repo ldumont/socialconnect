@@ -58,26 +58,24 @@ Locally, these information are stored in the database and can be set through the
 
 
 ==== API Calls ====
-The last step before making a call is to add the SocialConnect models and the decorator:
+The last step before making a call is to import the SocialConnect models and the decorator in your views.py:
 {{{
 from socialconnect.models import SocialContext, PlatformAccount, Platform
 from socialconnect.utils.decorators import exception_handler
 }}}
 
+
 == YASN Installation ==
 If you plan to install YASN to test it and play with the code, they are some adjustments required. First of all, the computer running YASN should be directly reachable from the Internet. This is mandatory because the authorization processes will redirect the users to remote platforms and these platforms need URL to redirect the users back to YASN. So on a web server there should be no problem, but on your home computer you will probably need to configure your router.
 
-Then as mentioned above, you 'll have to create an application on Facebook, MySpace and an account on Partuza to get the necessary API keys and secrets.
+Then as mentioned above, you will have to create an application on Facebook, MySpace and an account on Partuza to get the necessary API keys and secrets.
 
-YASN needs some specific definition in the settings of the project:
+YASN needs some specific definition in the settings.py of the project:
 
  * Add YASN to your installed apps.
+ * Configure your `urls.py` according to your project. 
  * Add `django.core.context_processors.media` to ´TEMPLATE_CONTEXT_PROCESSOR`.
  * Set `LOGIN_URL = '/login/'`. 
  * YASN send emails for password recovery, so don't forget to setup a SMTP server for Django (example below):
    * EMAIL_HOST = 'localhost'
    * EMAIL_PORT = 25
-
-
-
- * Configure your `urls.py` according to your project. 
