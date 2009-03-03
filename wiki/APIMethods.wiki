@@ -76,12 +76,28 @@ This method returns a list of friends. If `matched` equals `False`, the list con
 *_def get_groups(self, request, callback, `*`args)_*
 
 This method returns the list of the user's groups on the remote platform. 
+ * Parameters:
+   * _request_: the Django `HttpRequest` object.
+   * _callback_: the name of the callback view.
+   * `*`_args_: the parameters of the callback view.
 
+ * Return:
+   * A list of groups. Each group is represented as a dictionary. Keys: name, description, picture.
 
 *_def publish_user_action(self, request, callback, template_id, template_data, target_ids=None, `*`args)_*
 
 This method publishes an activity in the user Facebook wall. `template_id` must be the id of a template registered on Facebook and `template_data` the data to fill the template. `target_ids` can be a list of Facebook user ids if the template uses the {`*`target`*`) tag.
 
+ * Parameters:
+   * _request_: the Django `HttpRequest` object.
+   * _callback_: the name of the callback view.
+   * _template_id_: the name of the callback view.
+   * _template_data_: the name of the callback view.
+   * _target_ids_: the name of the callback view.
+   * `*`_args_: the parameters of the callback view.
+
+ * Return:
+   * `0` if the action was not published because the feed limit was exceeded. `1` if the story was successfully published. In every other case an exception is raised. 
 
 *_def send_notifications(self, request, callback, user_ids, text, `*`args)_*
 
