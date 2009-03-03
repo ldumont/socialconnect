@@ -2,7 +2,6 @@
 == Introduction ==
 This section describes the available methods of the `SocialContext` object.
 
-*TODO: calls et args*
 
 == Methods ==
 
@@ -26,13 +25,13 @@ This static method returns the list of platforms that support a specific task. T
 This static method can be used to remove the link between a local user and his remote account on a remote platform. This method also destroy the Social Context if it's related to this platform.
 
 
+
+=== API Calls ===
+Those methods are the API calls. Because any API call can lead to a redirection to the remote platform, it's necessary to tell the SocialContext where the user needs to be redirected after the remote platform. Thus all the methods have a `callback` and `*args` parameter. `callback` is the name of the callback view and `*args` contains the parameters for this view.
+
 *_def synch_account(self, request, callback, `*`args)_*
 
 This method simply synchronizes a user local account with a remote account on a remote platform. It just call the `_validation_context()´ method to obtains a session with the remote platform.
-
-
-=== API Calls ===
-Those methods are the API calls.
 
 *_def get_profile(self, request, callback, `*`args)_*
 
