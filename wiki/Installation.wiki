@@ -3,7 +3,7 @@
 == Introduction ==
 SocialConnect is available as a Django application with its own models and views. It requires some external libraries and very few settings. 
 
-The only thing that is specific to SocialConnect is the creation of an application on each remote platforms to get the keys to call the APIs.
+The only specificity of SocialConnect is the creation of an application on each remote platforms to get the keys to call the APIs.
 
 
 == Requirements ==
