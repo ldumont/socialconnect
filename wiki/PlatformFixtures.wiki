@@ -5,7 +5,37 @@ Here are a list of the information necessary for some platforms. The list will g
 
 
 == Facebook ==
+ * Name: Facebook
+ * API url: http://api.facebook.com/restserver.php
+ * API version: 1.0
+ * Login url: http://www.facebook.com/login.php
+ * API key: 
+ * API secret: 
+ * Support: people, groups, activities push, notifications 
+
 
 == MySpace ==
+ * Name: MySpace
+ * API url: http://api.myspace.com/v2/
+ * Consumer key:
+ * Consumer secret:
+ * Request token url: http://api.myspace.com/request_token
+ * Authorization token url: http://api.myspace.com/authorize
+ * Access token url: http://api.myspace.com/access_token
+ * Signature method: HMAC_SHA1
+ * Token validity: 86400
+ * Support: people
+ * Fields correction: diplayName => nickname, birthday => dateOfBirth 
 
 == Partuza ==
+ * Name: Partuza
+ * API url: http://modules.partuza.nl/social/rest/
+ * Consumer key: 
+ * Consumer secret: 
+ * Request token url: http://www.partuza.nl/oauth/request_token
+ * Authorization token url: http://www.partuza.nl/oauth/authorize
+ * Access token url: http://www.partuza.nl/oauth/access_token
+ * Signature method: HMAC_SHA1
+ * Token validity: 2592000
+ * Support: people
+ * Fields correction:: 
