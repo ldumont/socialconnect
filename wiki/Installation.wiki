@@ -44,15 +44,17 @@ Despite the fact that SocialConnect doesn't display anything to users directly, 
 
 {{{
 urlpatterns = patterns('',
-   	[...]
+   	[...],
 	(r'^socialconnect/', include('socialconnect.urls')),
-        [...]
+        [...],
 }}}
 
-==== Platform applications ====
-To be able to communicate with the API of an external platform, SocialConnect needs an API key and secret. They are usually delivered by the platform, so you have to create a application on the developer webpage of the platform.
+==== Platform information ====
+To be able to query a platform API, you have to get some information from it. These information are stored in the database and can be set throught the Django admin.
 
-So to be able to use SocialConnect with Facebook, MySpace and Partuza, you first have to create an application on each of those platforms to get an API key and secret. Then you have to use the Django admin to add the keys and secrets to these platforms.
+To be able to communicate with the API of an external platform, SocialConnect needs an API key and API secret. They are usually delivered by the platform, so you have to create a application on the developer webpage of each platform you want to support.
+
+
 
 ==== API Calls ====
 The last step before making a call is to add the SocialConnect models and the decorator:
