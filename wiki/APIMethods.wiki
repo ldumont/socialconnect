@@ -40,7 +40,7 @@ Those methods are the API calls. Because any API call can lead to a redirection 
 
 *_def synch_account(self, request, callback, `*`args)_*
 
-This method simply synchronizes a user local account with a remote account on a remote platform. It just call the `'_'validation_context()´ method to obtains a session with the remote platform.
+This method simply synchronizes a user local account with a remote account on a remote platform. It just call the `_validation_context()` method to obtains a session with the remote platform.
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
