@@ -7,6 +7,8 @@ This section describes the available methods of the `SocialContext` object.
 == Methods ==
 
 === Utilities ===
+Those methods are available to execute tasks related to `Platform` and `PlatformAccount`.
+
 *_def get_or_create_social_context(request, platform_id=None)_*
 
 This static method tries to get a Social Context from the user session. If none is found, it creates a new one with the platform_id.
@@ -30,6 +32,8 @@ This method simply synchronizes a user local account with a remote account on a 
 
 
 === API Calls ===
+Those methods are the API calls.
+
 *_def get_profile(self, request, callback, `*`args)_*
 
 This method returns a `Profile` object created with the data of the user's profile from the remote platform.
