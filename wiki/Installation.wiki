@@ -79,3 +79,5 @@ YASN needs some specific definition in the settings.py of the project:
  * YASN send emails for password recovery, so don't forget to setup a SMTP server for Django (example below):
    * EMAIL_HOST = 'localhost'
    * EMAIL_PORT = 25
+
+*FACEBOOK Templates!!!*
