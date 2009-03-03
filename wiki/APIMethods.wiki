@@ -58,11 +58,19 @@ This method returns a `Profile` object created with the data of the user's profi
    * `*`_args_: the parameters of the callback view.
 
  * Return:
-   * A list of `Profiles` build from the data received from the remote platform.
+   * A `Profile` build from the data received from the remote platform.
 
 *_def get_friends(self, request, callback, matched, `*`args)_*
 
 This method returns a list of friends. If `matched` equals `False`, they are `Profile` objects built from the remote data. If not, a matching on user ids is made to retrieve only the friends that are on the local platform. In this case, a list of `PlatformAccount` is returned.
+ * Parameters:
+   * _request_: the Django `HttpRequest` object.
+   * _callback_: the name of the callback view.
+   * _matched_: if `True` a matching is processed to retrieve a list of `PlatformAccounts`, if `False` a list of `Profiles`.
+   * `*`_args_: the parameters of the callback view.
+
+ * Return:
+   * A list of `Profiles` build from the data received from the remote platform.
 
 
 *_def get_groups(self, request, callback, `*`args)_*
