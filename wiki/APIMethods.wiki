@@ -91,13 +91,13 @@ This method publishes an activity in the user Facebook wall. `template_id` must 
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
-   * _template_id_: the name of the callback view.
-   * _template_data_: the name of the callback view.
-   * _target_ids_: the name of the callback view.
+   * _template_id_: the id of the template for the publication. The templates have to be created on the remote platform developer page.
+   * _template_data_: the data to fill the template.
+   * _target_ids (optional)_: the ids of remote platform users that will appear in the template.
    * `*`_args_: the parameters of the callback view.
 
  * Return:
-   * `0` if the action was not published because the feed limit was exceeded. `1` if the story was successfully published. In every other case an exception is raised. 
+   * `0` if the action was not published because the feed limit is exceeded. `1` if the story was successfully published. In every other case an exception is raised. 
 
 *_def send_notifications(self, request, callback, user_ids, text, `*`args)_*
 
