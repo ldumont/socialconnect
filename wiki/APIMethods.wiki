@@ -3,8 +3,6 @@
 This section describes the available methods of the `SocialContext` object.
 
 
-== Methods ==
-
 === Utilities ===
 Those methods are available to execute tasks related to `Platform` and `PlatformAccount`.
 
