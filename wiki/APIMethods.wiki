@@ -41,10 +41,24 @@ Those methods are the API calls. Because any API call can lead to a redirection 
 *_def synch_account(self, request, callback, `*`args)_*
 
 This method simply synchronizes a user local account with a remote account on a remote platform. It just call the `_validation_context()´ method to obtains a session with the remote platform.
+ * Parameters:
+   * _request_: the Django `HttpRequest` object.
+   * _callback_: the name of the callback view.
+   * _'*'args_: the parameters to the callback view.
+
+ * Return:
+   * `True` if the account has been successfully synchronized. 
 
 *_def get_profile(self, request, callback, `*`args)_*
 
 This method returns a `Profile` object created with the data of the user's profile from the remote platform.
+ * Parameters:
+   * _request_: the Django `HttpRequest` object.
+   * _callback_: the name of the callback view.
+   * _'*'args_: the parameters to the callback view.
+
+ * Return:
+   * `True` if the account has been successfully synchronized.
 
 
 *_def get_friends(self, request, callback, matched, `*`args)_*
