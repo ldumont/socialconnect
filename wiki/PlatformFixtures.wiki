@@ -1,0 +1,11 @@
+#summary Fixtures for platforms
+
+= Introduction =
+Here are a list of the information necessary for some platforms. The list will grow as more and more platforms are tested with SocialConnect.
+
+
+== Facebook ==
+
+== MySpace ==
+
+== Partuza ==
