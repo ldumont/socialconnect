@@ -44,7 +44,7 @@ This method simply synchronizes a user local account with a remote account on a 
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
-   * '*'_args_: the parameters to the callback view.
+   * `*`_args_: the parameters to the callback view.
 
  * Return:
    * `True` if the account has been successfully synchronized. 
@@ -55,7 +55,7 @@ This method returns a `Profile` object created with the data of the user's profi
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
-   * _'*'args_: the parameters to the callback view.
+   * `*`_args_: the parameters to the callback view.
 
  * Return:
    * `True` if the account has been successfully synchronized.
