@@ -80,4 +80,6 @@ YASN needs some specific definition in the settings.py of the project:
    * EMAIL_HOST = 'localhost'
    * EMAIL_PORT = 25
 
+==== Facebook templates ====
+
 To be able to test the notification of activities to Facebook, you have to create the three necessary templates with the [http://developers.facebook.com/tools.php?feed Facebook tool]. The ids need then to be replaced by your templates in the `remote_story()`and `remote_comment()` YASN views.
