@@ -1,24 +1,9 @@
 #summary Requirements and procedure.
 
 == Introduction ==
-SocialConnect is available as a Django application. First install it in your project by adding the application in your settings.py:
+SocialConnect is available as a Django application with its own models and views. It requires some external libraries and very few settings. 
 
-{{{
-INSTALLED_APPS = (
-    [...],	
-    'socialconnect',
-    [...],
-)
-}}}
-
-In the same file, add a constant to define which model describes the user profile of your platform:
-`AUTH_PROFILE_MODULE = 'apps.model'`
-
-SocialConnect uses database for storage so you need to create the database tables with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
-
-To be able to communicate with the API of an external platform, SocialConnect needs an API key and secret. They are usually delivered by the platform, so you have to create a application on the developer webpage of the platform.
-
-So to be able to use SocialConnect with Facebook, MySpace and Partuza, you first have to create an application on each of those platforms to get an API key and secret. Then you have to use the Django admin to add the keys and secrets to these platforms.
+The only thing that is specific to SocialConnect is the creation of an application on each remote platforms to get the keys to call the APIs.
 
 
 == Requirements ==
@@ -37,7 +22,25 @@ SocialConnect also requires several external libraries:
 
 Install them as usual and be sure that they are available within your Django project.
 
-== SocialConnect views ==
+== Installation ==
+First install it in your project by adding the application in your settings.py:
+
+{{{
+INSTALLED_APPS = (
+    [...],	
+    'socialconnect',
+    [...],
+)
+}}}
+
+In the same file, add a constant to define which model describes the user profile of your platform:
+`AUTH_PROFILE_MODULE = 'apps.model'`
+
+SocialConnect uses database for storage so you need to create the database tables with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
+
+
+
+=== SocialConnect views ===
 Despite the fact that SocialConnect doesn't display anything to users directly, it has some views that need to be accessible. Those views are the callback view after a redirection to a remote platform. So in the urls.py file of your project, you have to add access to the SocialConnect view:
 
 {{{
@@ -47,7 +50,12 @@ urlpatterns = patterns('',
 	(r'^', include('yasn.urls')),	
 }}}
 
-== API Calls ==
+=== Platform applications ===
+To be able to communicate with the API of an external platform, SocialConnect needs an API key and secret. They are usually delivered by the platform, so you have to create a application on the developer webpage of the platform.
+
+So to be able to use SocialConnect with Facebook, MySpace and Partuza, you first have to create an application on each of those platforms to get an API key and secret. Then you have to use the Django admin to add the keys and secrets to these platforms.
+
+=== API Calls ===
 The last step before making a call is to add the SocialConnect models and the decorator:
 {{{
 from socialconnect.models import SocialContext, PlatformAccount, Platform
