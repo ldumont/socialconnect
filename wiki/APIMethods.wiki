@@ -41,6 +41,7 @@ Those methods are the API calls. Because any API call can lead to a redirection 
 *_def synch_account(self, request, callback, `*`args)_*
 
 This method simply synchronizes a user local account with a remote account on a remote platform. It just call the `_validation_context()` method to obtains a session with the remote platform.
+
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
@@ -52,6 +53,7 @@ This method simply synchronizes a user local account with a remote account on a 
 *_def get_profile(self, request, callback, `*`args)_*
 
 This method returns a `Profile` object created with the data of the user's profile from the remote platform.
+
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
@@ -63,6 +65,7 @@ This method returns a `Profile` object created with the data of the user's profi
 *_def get_friends(self, request, callback, matched, `*`args)_*
 
 This method returns a list of friends. If `matched` equals `False`, the list contains `Profile` objects built from the remote data. If not, a matching on user ids is made to retrieve only the friends that are on the local platform. In this case, a list of `PlatformAccount` is returned.
+
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
@@ -76,6 +79,7 @@ This method returns a list of friends. If `matched` equals `False`, the list con
 *_def get_groups(self, request, callback, `*`args)_*
 
 This method returns the list of the user's groups on the remote platform. 
+
  * Parameters:
    * _request_: the Django `HttpRequest` object.
    * _callback_: the name of the callback view.
@@ -93,7 +97,7 @@ This method publishes an activity in the user Facebook wall. `template_id` must 
    * _callback_: the name of the callback view.
    * _template_id_: the id of the template for the publication. The templates have to be created on the remote platform developer page.
    * _template_data_: the data to fill the template.
-   * _target_ids (optional)_: the ids of remote platform users that will appear in the template.
+   * _target_ids (optional)_: the ids of users from the remote platform that will appear in the template as link to their remote profiles.
    * `*`_args_: the parameters of the callback view.
 
  * Return:
@@ -102,3 +106,13 @@ This method publishes an activity in the user Facebook wall. `template_id` must 
 *_def send_notifications(self, request, callback, user_ids, text, `*`args)_*
 
 This method sends a notification to a list of users on Facebook. `user_ids` contains the Facebook user ids and `text` the text to send. Links can be added in the notification using the HTML `a` tag.
+
+ * Parameters:
+   * _request_: the Django `HttpRequest` object.
+   * _callback_: the name of the callback view.
+   * _user_ids_: ids of the target users on the remote platform.
+   * _text_: the text to send.
+   * `*`_args_: the parameters of the callback view.
+
+ * Return:
+  * `0` if the notification was not sent because the notification limit is exceeded. `1` if the notification was successfully sent. In every other case an exception is raised. 
