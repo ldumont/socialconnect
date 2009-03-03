@@ -14,6 +14,8 @@ INSTALLED_APPS = (
 Also in the same file add the constant to define which model describes the user profile of your platform:
 `AUTH_PROFILE_MODULE = 'apps.model'`
 
+SocialConnect use some views so add them to your root urls.py:
+`(r'^socialconnect/', include('socialconnect.urls'))`
 
 SocialConnect uses database for storage so you need to create the table with a "syncdb" command. The application comes with fixtures for Facebook, MySpace and Partuza support.
 
@@ -60,12 +62,13 @@ If you plan to install YASN to test it and play with the code, they are some adj
 
 Then as mentioned above, you 'll have to create an application on Facebook, MySpace and an account on Partuza to get the necessary API keys and secrets.
 
-Then you have to configure your server to make it work..
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+YASN needs some specific definition in the settings of the project:
 
-LOGIN_URL = '/login/'
+ * Add YASN to your installed apps.
+ * Add `django.core.context_processors.media` to ´TEMPLATE_CONTEXT_PROCESSOR`.
+ * Set `LOGIN_URL = '/login/'`. 
+ * YASN send emails for password recovery, so don't forget to setup a SMTP server for Django (example below):
+   * EMAIL_HOST = 'localhost'
+   * EMAIL_PORT = 25
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 25
-
-Add socialconnect urls in url.py
+ * Configure your `urls.py` according to your project. 
