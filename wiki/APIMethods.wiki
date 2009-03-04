@@ -1,4 +1,5 @@
 #summary Methods Footprint to query the API
+#labels Featured
 == Introduction ==
 This section describes the available methods of the `SocialContext` object.
 
