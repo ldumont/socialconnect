@@ -14,7 +14,7 @@ To be authorized, an API call needs to be sent with a correct session key. This 
 
 The authorization is handled by the [Architecture Social Context]. The Social Context contains a communication object. This object is an instance of the communication library [http://pyfacebook.googlecode.com/ pyFacebook] or [http://opensocial-python-rest-library.googlecode.com/ opensocial-python-rest-library].
 
-If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail and the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platfom. Their the user authorizes the application and come back to the SocialConnect views with a new token. The token is first stored in the database and then used to create a new communication object. If necessary, an `PlatformAccount` is created. 
+If the context is freshly created, it doesn't have a communication object yet. So the communication object validation will fail and the Social Context will raise a `RedirectException`. The `exception_handler` decorator will catch it and redirect the user to the remote platfom. Their the user authorizes the application and come back to the SocialConnect views with a new token. The token is first stored in the database and then used to create a new communication object. If necessary, a `PlatformAccount` is created. 
 
 Finally the user is redirected back to the view that initiated the call and the view will try again the call with a valid Social Context.
 
