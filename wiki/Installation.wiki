@@ -64,6 +64,9 @@ from socialconnect.models import SocialContext, PlatformAccount, Platform
 from socialconnect.utils.decorators import exception_handler
 }}}
 
+==== SocialConnectException ====
+In some cases, SocialConnect requires that the user sign out of the remote platform. This could happen if two users uses the same computer to synchronize their accounts. In this case, SocialConnect will raise a `SocialConnectException`. This exception is caught by the `exception_handler` decorator that by default returns a `HttpResponse` with an error description. So in `socialconnect/utils/decorators.py`, you have to edit what to do when such a `SocialConnectException` is caught.
+
 
 == YASN Installation ==
 If you plan to install YASN to test it and play with the code, they are some adjustments required. First of all, the computer running YASN should be directly reachable from the Internet. This is mandatory because the authorization processes will redirect the users to remote platforms and these platforms need URL to redirect the users back to YASN. So on a web server there should be no problem, but on your home computer you will probably need to configure your router.
