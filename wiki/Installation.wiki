@@ -38,6 +38,8 @@ INSTALLED_APPS = (
 
  * Create the SocialConnect database tables by running `manage.py syncdb`.
 
+ * Be sure to correctly configure the Django `Sites` application.
+
 
 ==== SocialConnect views ====
 Despite the fact that SocialConnect doesn't display anything to users directly, it has some views that need to be accessible. Those views are the callback views after a redirection to a remote platform. So in the urls.py file of your project, you have to add access to the SocialConnect view:
