@@ -5,11 +5,11 @@
 SocialConnect is separated in two layers:
 
 
-The Model layer contains the models used to store remote platforms information and users's account on those platforms. It also deals with the whole authentification process. The Model layer validates any API request and send it to the Proxy layer who send the request to the remote API.
+The Model layer contains the models used to store remote platforms information and users's account on those platforms. It also deals with the whole authentification process. The Model layer validates any API request and send it to the Proxy layer who sends the request to the remote API.
 
 
 == Platforms and Accounts ==
-The supported platforms are added through the Django admin. The current release comes with support for Facebook, MySpace and Partuza. The application key and secret are empty and must be completed.
+The supported platforms are added through the Django admin. The current release has been tested with Facebook, MySpace and Partuza. The information for those platforms can be found [PlatformFixtures here].
 
 For a user that send a query to a remote platform, SocialConnect creates a local `PlatformAccount` to store the id of the user on the remote platform as well as his session information. The only data from the remote platform that is automatically stored is the user id.
 
