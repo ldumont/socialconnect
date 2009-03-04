@@ -12,7 +12,7 @@ For OpenSocial, the library ([http://opensocial-python-rest-library.googlecode.c
 
 The methods in the model layer are responsible to first check if the remote platform supports the call and then check if the call is authorized. The model layer then instantiate the correct proxy layer that will send the call to the API.
 
-This schema is the same for each functionality, with minor differences.
+This schema is the same for each functionality, with minor differences, and can be used to add new API calls to SocialConnect.
 
 *Model layer:*
 {{{
@@ -68,7 +68,7 @@ def send_notifications(self, uids, text, type='user_to_user'):
 }}}
 
 === Activities ===
-The main next improvement would be the support of activities for OpenSocial. Actually, activities can be notified only on Facebook. The OpenSocial 0.8 specifications for the REST API.
+The main next improvement would be the support of activities for OpenSocial. Actually, activities can be notified only on Facebook. The OpenSocial 0.8 specifications for the REST API describe it and it's a matter of time before any live platform supports it.
 
 === Profiles ===
 The actual matching of profile is very simple. A comparison between the ids of the user on the remote platform is done. This could be improved by  editing the matching function with a more complex matching.
