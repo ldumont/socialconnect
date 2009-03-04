@@ -371,7 +371,7 @@ def remote_story(request, story_id, platform_id):
     # notify the remote platform
     args = (story_id, platform_id)
     
-    respone = social_context.publish_user_action(request, 'remote_story', template_id, template_data, None, *args)
+    response = social_context.publish_user_action(request, 'remote_story', template_id, template_data, None, *args)
     
     # an error occurs when notifying the story
     if response == 0:
@@ -472,7 +472,7 @@ def remote_comment(request, story_id, platform_id):
     # notify the remote platform
     args = (story_id, platform_id)
 
-    respone = social_context.publish_user_action(request, 'remote_comment', template_id, template_data, target_ids, *args)
+    response = social_context.publish_user_action(request, 'remote_comment', template_id, template_data, target_ids, *args)
 
     # an error occurs when notifying the story
     if response == 0:
