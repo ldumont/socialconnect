@@ -1,4 +1,5 @@
 #summary Description of the application layers.
+#labels Featured
 
 == Introduction ==
 
