@@ -1,0 +1,37 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+
+    {% if friends %}
+        <div id="friends">
+            <h1>Your friends from {{ platform }}:</h1>
+
+            {% for friend in friends %}
+                <div class="friend-profile">
+                    <div class="friend-head"><a href="{{ friend.profile_url }}">{{ friend.givenName }} {{ friend.familyName }}<br /></a></div>
+
+                    <div class="friend-pic">                        
+                        {% if friend.photo %}
+                            <img src="{{ friend.photo }}" alt="Photo of {{ friend.givenName }} {{ friend.familyName }}" />  
+                        {% else %}  
+                            <img src="{{ MEDIA_URL }}images/photos/default.gif" alt="Photo of {{ friend.givenName }} {{ friend.familyName }}" style="width: 100px;"/>   
+                        {% endif %}
+                    </div>
+                    
+                    <div class="profile-infos">
+                        Birthday: {{friend.birthday}}<br />
+                        Gender: {{friend.sex}}<br />
+                        Description: {{friend.aboutMe}}<br />
+                        Emails: {{friend.emails}}<br />
+                        Address: {{friend.address}}<br />
+                        Work History: {{friend.work_history}}<br />
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <br clear="all" />
+    {% else %}
+        <h2>You don't have any friends on {{ platform }}.</h2>
+    {% endif %} 
+
+{% endblock %}

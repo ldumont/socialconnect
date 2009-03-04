@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    {% block javascript %}
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.2.6.js"></script>
+    {% endblock %}
+
+    <title> {% block title %} Yet Another Social Network {% endblock %} </title>
+    <link href="{{ MEDIA_URL }}css/main.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    
+    <div id="nav-container">
+        <ul id="nav-list">
+            <li><a href="{% url home %}">Home</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url profile %}">Profile</a></li>
+                <li><a href="{% url friends %}">Friends</a></li>
+                <li><a href="{% url view_stories %}">Stories</a></li>
+                <li><a href="{% url proof_of_concept %}">Proof of Concept</a></li>
+                <li><a href="{% url logout_view %}">Logout</a></li>
+                <li style="float:right;">Welcome {{ user.username }} !</li>
+            {% else %}
+                <li><a href="{% url signup %}">Signup</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div id="content">{% block content %}{% endblock content %}</div>
+
+  </body>
+</html>

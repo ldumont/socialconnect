@@ -1,0 +1,77 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+    {% ifequal mode "self" %}
+        <h1>Your profile:</h1>
+    {% else %}
+        <h1>{{ profile.user.username }}'s profile:</h1>
+    {% endifequal %}
+    
+    <p>
+        <strong>Fristname:</strong> {{ profile.user.first_name }}<br />     
+        <strong>Lastname:</strong> {{ profile.user.last_name }}<br />
+        <strong>Sex:</strong> {{ profile.get_sex_display }}<br />   
+        <strong>Birthday:</strong> {{ profile.birthday|date:"d M Y" }}<br />
+        <strong>Description:</strong> {{ profile.description }}<br /><br /> 
+
+        {% if profile.picture %}            
+            <img src="{{ MEDIA_URL }}{{ profile.picture }}" alt="User picture" style="width:100px"/>
+        {% else %}
+            <img src="{{ MEDIA_URL }}images/photos/default.gif" alt="User picture" style="width:100px"/>
+        {% endif %}
+    </p>
+    
+    {% ifequal mode "self" %}
+        <p><a href="{% url edit_profile %}">Edit your profile</a></p>
+        <p><a href="{% url change_password %}">Edit your password</a></p>
+
+        <div id="subscriptions">
+            <h1>Your subscriptions:</h1>            
+            <div id="subscriptions-content">
+                {% if subscriptions %}
+                <ul style="padding-left: 0px; list-style-type: none;">      
+                    {% for sub in subscriptions %}
+                        {% with sub.platform as platform %}
+                        <li style="padding-bottom: 3px;">
+                            <img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" style="padding-right: 5px;"/>{{ platform.name }}
+                            <img src="{{ MEDIA_URL }}images/delete.png" id="{{ platform.id }}" alt="Remove {{ platform.name }}" title="Remove {{ platform.name }}" class="delete-img" />
+                        </li>
+                        {% endwith %}
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <h2>You don't have subscriptions to a remote platform.</h2>
+                {% endif %}
+            </div>
+        </div>
+    {% endifequal %}
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.delete-img').click(function(){
+                var subs_count = {{ subscriptions_size }}
+                // Do ajax call
+                var img = this;
+                var answer = confirm(img.title+' ?');
+                if (answer){
+                    $.ajax({
+                        type: "POST",
+                        url: "{% url ajax_subscription_remove %}",
+                        data: "platform_id="+img.id,
+                        success: function(msg){             
+                            $('#'+img.id).parent().remove();
+                            if(--subs_count == 0){
+                                $('#subscriptions-content').html('<h2>You don\'t have subscriptions to a remote platform.</h2>');
+                            }
+                        },
+                        error: function(msg){
+                            alert(msg);
+                        }                   
+                    });
+                }               
+                
+            });
+         });
+    </script>
+
+{% endblock %}

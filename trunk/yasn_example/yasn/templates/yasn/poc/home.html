@@ -1,0 +1,61 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+
+<h1>Proof of Concept</h1>
+<h2>You'll find here some other features of the application:</h2>
+
+<div class="box">
+    <h2>Synchronize your YASN account with:</h2>
+    <div id="profile-synch-platforms">
+    {% if people_supported_platforms %} 
+    <ul class="platform-list">
+        {% for platform in people_supported_platforms  %}
+        <li><a href="{% url synch_account platform.pk %}"><img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" title="{{ platform.name }}"/></a> </li>   
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>  
+</div>
+
+<div class="box">
+    <h2>See your profile from:</h2>
+    <div id="profile-synch-platforms">
+    {% if people_supported_platforms %}
+    <ul class="platform-list">
+        {% for platform in people_supported_platforms  %}
+        <li><a href="{% url get_profile platform.pk %}"><img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" title="{{ platform.name }}"/></a></li>  
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>  
+</div>
+
+<div class="box">
+    <h2>See your friends from:</h2>
+    <div id="friends-synch-platforms">
+    {% if people_supported_platforms %} 
+    <ul class="platform-list">
+        {% for platform in people_supported_platforms  %}
+        <li><a href="{% url get_friends_and_profile platform.pk %}"><img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" title="{{ platform.name }}"/></a> </li> 
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>  
+</div>
+
+<div class="box">
+    <h2>See your groups from:</h2>
+    <div id="groups-synch-platforms">
+    {% if groups_supported_platforms %} 
+    <ul class="platform-list">
+        {% for platform in groups_supported_platforms  %}
+        <li><a href="{% url get_groups platform.pk %}"><img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" title="{{ platform.name }}"/></a> </li>  
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>  
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+
+{% if self %}
+    <h1>Your Activities From {{ platform_name }} </h1>
+{% else %}
+    <h1>Your Friend's Activities From {{ platform_name }} </h1>
+{% endif %}
+
+
+{% for activity in activities %}
+    <p>{{ profile.name }} {{ activity.title }}</p> 
+
+{% endfor %}
+
+
+{% endblock %}

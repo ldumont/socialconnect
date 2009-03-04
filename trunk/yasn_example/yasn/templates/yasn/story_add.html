@@ -1,0 +1,40 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+    <h1>Add a new story</h1>
+    
+    <form action="" method="post" id="story-add-form">
+    <div id="story-add">
+        <div class="line">
+            <div class="label">{{ story_form.title.label_tag }}:</div>
+            <div class="field">{{ story_form.title }}</div> 
+            {% if story_form.title.errors %}<div class="field error">{{ story_form.title.errors }}</div>{% endif %} 
+        </div>
+    
+        <div class="line">
+            <div class="label">{{ story_form.body.label_tag }}:</div>
+            <div class="field body">{{ story_form.body }}</div> 
+            {% if story_form.body.errors %}<div class="field error">{{ story_form.body.errors }}</div>{% endif %}
+        </div>
+        <br />
+        <div class="line">
+            {% if platforms %}
+                <h3>Notify this story on:</h3> 
+                <ul class="platform-list" style="padding-left: 0px;">
+                {% for platform in platforms %}                 
+                    <li>
+                        <input type="radio" name="notify" value="{{ platform.id }}" id="radio_{{ platform.id }}" />
+                        <label for="radio_{{ platform.id }}"><img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" style="padding-right: 5px;"/></label>
+                    </li>
+                {% endfor %}
+                </ul>   
+            {% endif %}         
+        </div>
+
+        <div class="line">
+            <input type="submit" value="Add"/>
+        </div>
+    </div>
+    </form>
+    
+{% endblock %}

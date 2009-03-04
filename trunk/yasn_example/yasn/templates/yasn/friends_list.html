@@ -1,0 +1,91 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+    <h1>Your friends on YASN:</h1>
+    {% if friends %}
+        <div id="friends">
+            {% for friend in friends %}
+                <div class="friend">
+                    <div class="friend-head">
+                        {% if friend.user.first_name and friend.user.last_name %}
+                            <a href="{% url profile_view friend.user.id %}">{{ friend.user.first_name }} {{ friend.user.last_name }}</a>
+                        {% else %}
+                            <a href="{% url profile_view friend.user.id %}">{{ friend.user.username }}</a>
+                        {% endif %}
+                        <img src="{{ MEDIA_URL }}images/delete.png" alt="Delete user" class="delete-img" id="{{ friend.user.username }}" title="Remove {{ friend.user.first_name }} {{ friend.user.last_name }}"/>                      
+                    </div>
+
+                    <div class="friend-pic">
+                        <a href="{% url profile_view friend.user.id %}">
+                        {% if friend.picture %}                     
+                            <img src="{{ MEDIA_URL }}{{ friend.picture }}" alt="Photo of {{ friend.user.first_name }} {{ friend.user.last_name }}" style="width: 100px;"/>  
+                        {% else %}  
+                            <img src="{{ MEDIA_URL }}images/photos/default.gif" alt="{{ friend.user.first_name }} {{ friend.user.last_name }}" style="width: 100px;"/>  
+                        {% endif %}
+                        </a>
+                    </div>
+                </div>
+    
+            {% endfor %}
+            </div>
+            <div class="clear"></div>
+    {% else %}
+        <div id="friends">
+            <h2>You don't have any friends on YASN.</h2>
+        </div>
+    {% endif %} 
+
+    {% if platforms_get %}
+        <p>Add more friends from:</p>
+        <ul class="platform-list" style="padding-left: 0px;">       
+            {% for platform in platforms_get %}
+                <li>
+                    <a href="{% url get_matched_friends platform.id %}" title="{{ platform.name }}">
+                        <img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" />
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if platforms_notifications %}
+        <p>Invite friends from:</p>
+        <ul class="platform-list" style="padding-left: 0px;">       
+            {% for platform in platforms_notifications %}
+                <li>
+                    <a href="{% url invite_friends platform.id %}" title="{{ platform.name }}">
+                        <img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" />
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var friends_count = {{ friends_size }}
+            $('.delete-img').click(function(){
+                var img = this;
+                var answer = confirm(img.title+' ?');
+                if (answer){
+                    $.ajax({
+                        type: "POST",
+                        url: "{% url ajax_friend_remove %}",
+                        data: "username="+img.id,
+                        success: function(msg){                         
+                            $('#'+img.id).parent().parent().remove();
+                            if(--friends_count == 0){
+                                $('#friends').html('<h2>You don\'t have any friends on YASN.</h2>');
+                            }
+                        },
+                        error: function(msg){
+                            alert(msg);
+                        }                   
+                    });
+                }
+            });
+         });
+    </script>
+
+
+{% endblock %}
