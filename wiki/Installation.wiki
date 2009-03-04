@@ -1,4 +1,5 @@
 #summary Requirements and how-to.
+#labels Featured
 
 == Introduction ==
 SocialConnect is available as a Django application with its own models and views. It requires some external libraries and very few settings. 
