@@ -1,0 +1,23 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+    <h1>Signup to YASN:</h1>
+    <form action="" method="post" id="signup-form">
+        <div id="signup">
+            {% for field in signup_form %}          
+                <div class="line">
+                    <div class="label">{{ field.label_tag }}:</div>
+                    <div class="field">{{ field }}</div> 
+                    {% if field.errors %}<div class="field error">{% for error in field.errors %}{{ error }}{% endfor %}</div> {% endif %}                  
+                </div>
+            {% endfor %}
+        </div>
+        <div><input type="submit" name="submit" id="submit" value="Signup !" /></div>
+    </form>
+        
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#id_username').focus();
+        });
+    </script>
+{% endblock %}

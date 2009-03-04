@@ -1,0 +1,13 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+
+<h1>Your groups from {{ platform_name }} </h1>
+{% for group in my %}
+    <h3>{{ group.name }}</h3>
+    <p>{{ group.description }}</p> 
+    <img src="{{ group.pic }}" alt="Group picture" />
+{% endfor %}
+
+
+{% endblock %}

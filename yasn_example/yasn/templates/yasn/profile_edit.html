@@ -1,0 +1,98 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+    <h1>Edit your profile:</h1>
+    
+    <form action="" method="post" id="profile-form" enctype="multipart/form-data">
+        <div id="profile-edit">
+            {% for field in user_form %}                
+                <div class="line">
+                    <div class="label">{{ field.label_tag }}:</div>
+                    <div class="field">{{ field }}</div> 
+                    {% if field.errors %}<div class="field">{{ field.errors }}</div> {% endif %}                    
+                </div>
+            {% endfor %}
+            
+            <div class="line">
+                <div class="label"> {{ profile_form.sex.label_tag }}: </div>
+                <div class="field">{{ profile_form.sex }}</div>
+                {% if profile_form.sex.errors %}<div class="field">{{ profile_form.sex.errors }}</div> {% endif %}                  
+            </div>      
+            
+            <div class="line">
+                <div class="label"> {{ profile_form.birthday.label_tag }}: </div>
+                <div class="field">{{ profile_form.birthday }}</div>
+                {% if profile_form.birthday.errors %}<div class="field">{{ profile_form.birthday.errors }}</div> {% endif %}                    
+            </div>              
+                                
+            <div class="line">
+                <div class="label"> {{ profile_form.description.label_tag }}: </div>
+                <div class="field">{{ profile_form.description }}</div>
+                {% if profile_form.description.errors %}<div class="field">{{ profile_form.description.errors }}</div> {% endif %}                  
+            </div>
+            
+            {% if picture_preview %}
+            <div class="line" id="picture-preview">
+                <div class="label">{{ profile_form.picture.label_tag }}:</div>
+                <div class="image field">
+                    {% if remote %}
+                        <img src="{{ picture_preview }}" alt="User picture" style="width:100px" id="remote-pic-img"/>
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}{{ picture_preview }}" alt="User picture" style="width:100px"/>                        
+                    {% endif %}
+
+                </div>
+                <a href="#" id="upload-new">Upload a new picture</a><br />
+                <div id="remote-pic"><input type="checkbox" name="remote-pic-cb" id="remote-pic-cb"/><label for="remote-pic-cb">Keep this picture</label></div>
+                {% if field.picture.errors %}<div class="field">{{ field.picture.errors }}</div> {% endif %}                    
+            </div>
+            {% endif %}
+                    
+            <div class="line" id="picture-upload">
+                <div class="line picture-upload">
+                    <div class="label">{{ profile_form.picture.label_tag }}:</div>
+                    <div class="field">{{ profile_form.picture }}</div> 
+                </div>              
+            </div>
+        </div>
+        <div>
+            <input type="submit" name="submit" id="submit" value="Save" />
+            <input type="hidden" name="remote-pic-url" id="remote-pic-url" value=""/>
+        </div>
+
+    </form>
+
+    <p>Get your profile from:</p>
+    <ul class="platform-list" style="padding-left: 0px;">       
+        {% for platform in platforms %}
+            <li><a href="{% url edit_profile_from_remote platform.id %}" title="{{ platform.name }}"><img src="{{ MEDIA_URL }}{{ platform.logo }}" alt="{{ platform.name }}" /></a></li>
+        {% endfor %}
+    </ul>
+
+
+
+
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#picture-upload').hide('fast');  
+                
+            $('#upload-new').click(function() {
+                $('#picture-preview').hide('fast');
+                $('#upload-new').hide('fast');
+                $('#remote-pic').hide('fast');
+                $('#picture-upload').show('fast');
+            });
+            
+            $('#remote-pic-cb').click(function(){
+                $('#remote-pic-url').val($('#remote-pic-img').attr('src'));
+            });
+            
+            if('{{ remote }}' == 'False'){
+                $('#remote-pic').hide('fast');
+            }
+         });
+    </script>
+    
+
+{% endblock %}

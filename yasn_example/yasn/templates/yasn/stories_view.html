@@ -1,0 +1,23 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+    <h1>All pusblished stories</h1>
+    
+    {% if stories %}
+        <div id="stories">  
+        {% for story in stories %}              
+            <div class="story">
+                <h2><a href="{% url view_story story.id %}">{{ story.title }}</a></h2>
+                <p>{{ story.body|truncatewords:50 }}</p>
+                
+                <div class="right">
+                    <a href="{% url view_story story.id %}">More...</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>      
+    {% endif %}
+
+    <a href="{% url add_story %}">Add a new story</a>
+    
+{% endblock %}

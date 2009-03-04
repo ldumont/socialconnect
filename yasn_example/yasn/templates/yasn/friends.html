@@ -1,0 +1,54 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+
+    {% if friends %}
+        <form action="{% if invite %}{% url send_invite_friends platform.id %}{% else %}{% url add_friends %}{% endif %}" method="post" accept-charset="utf-8">     
+            <div id="friends">
+                <h1>These are your friends from {{ platform }} that are{% if invite %} not{% endif %} on YASN:</h1>
+                {% for friend in friends %}
+                    <div class="friend">
+                        <div class="friend-head">
+                            <label for="users-{{ forloop.counter }}">
+                            {% if friend.givenName and friend.familyName %}
+                                {{ friend.givenName }} {{ friend.familyName }}
+                            {% else %}
+                                {{ friend.username }}
+                            {% endif %}
+                            </label>
+                            {%if invite %}                              
+                                <input type="checkbox" name="users-{{ friend.id }}" value="{{ friend.id }}" id="users-{{ forloop.counter }}"/>                      
+                            {% else %}
+                                <input type="checkbox" name="users-{{ friend.username }}" value="{{ friend.username }}" id="users-{{ forloop.counter }}"/>  
+                            {% endif %}
+                        </div>
+
+                        <div class="friend-pic">
+                            {% if friend.photo %}
+                                <img src="{% if not invite %}{{ MEDIA_URL }}{% endif %}{{ friend.photo }}" alt="Picture of {{ friend.name }}" style="width: 100px;" />  
+                            {% else %}  
+                                <img src="{{ MEDIA_URL }}images/photos/default.gif" alt="Picture of {{ friend.name }}" style="width: 100px;"/>  
+                            {% endif %} 
+                        </div>  
+                    </div>                          
+                {% endfor %}
+                <div class="clear"></div>
+            </div>
+            
+            <p><input type="submit" value="{% if invite %}Invite {{ platform }} friends{% else %}Add as friends{% endif %}"/></p>
+
+        </form>
+        
+    {% else %}
+        {% if invite %}
+            <h1>Your friends from {{ platform }} that are not on YASN:</h1>
+            Excellent, all your friends from {{ platform }} are on YASN!!
+        {% else %}
+            <h1>Your friends from {{platform}} that are already on YASN:</h1>
+            Sorry, but it seems that there aren't any of your friends from {{ platform }} that are on YASN...
+        {% endif %}
+        
+    {% endif %} 
+    
+{% endblock %}
+

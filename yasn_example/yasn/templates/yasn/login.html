@@ -1,0 +1,28 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+<h1> Welcome to YASN ! </h1>
+<div id="login-form">
+    <form action="{% url login_view %}" method="post">
+        
+        <div class="line">
+            <div class="label">Username:</div><div class="field"><input type="text" name="username" id="username" /></div>
+        </div>
+
+        <div class="line">
+            <div class="label">Password:</div><div class="field"><input type="password" name="password" /></div>
+        </div>
+
+        <div class="line">
+            <div class="field"><input type="submit" value="Login" /></div><a href="{% url recover_password %}">Recover password</a>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#username').focus();
+    });
+</script>
+
+{% endblock %}

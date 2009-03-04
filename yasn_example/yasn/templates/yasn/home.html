@@ -1,0 +1,9 @@
+{% extends 'yasn/base.html' %}
+
+{% block content %}
+
+<h1>Welcome to Yet Another Social Network</h1>
+
+<p> Hi {{ name }}, you can <a href="{% url profile %}">edit your profile</a>, <a href="{% url friends %}">add some friends</a> or <a href="{% url view_stories %}">write a story</a></p>
+
+{% endblock %}
