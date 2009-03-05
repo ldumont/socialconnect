@@ -52,13 +52,7 @@ class Proxy(object):
             This function send a notification to the ids provided
         '''
         raise NotImplementedError       
-
-    def get_activities(self):
-        '''
-            This function get the activities of the authentificated user.
-        '''     
-        raise NotImplementedError       
-                
+            
 
     
 class FBRequestProxy(Proxy):
@@ -210,15 +204,8 @@ class OSRequestProxy(Proxy):
         
         return self.get_users_profile(['@me'], fields)
 
-    def get_groups(self):
-        '''
-            This function return the groups of the authentificated user on the target platform
 
-        '''
-        return self.com_object.get_groups(['@me'])
 
-    #def get_activities(self, uid='@me', target='@self'):
-    #   return self.com_object.get_activities(uid, target)
         
 
 
