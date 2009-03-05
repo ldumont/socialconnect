@@ -20,7 +20,6 @@ sys.path.insert(1, project_root_dir)
 sys.path.insert(1, project_dir)
 #sys.path.insert(0, project_dir2)
 
-print sys.path
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'yasn_example.settings'
 os.environ['PYTHON_EGG_CACHE'] = os.path.join(project_root_dir, 'tmp')
