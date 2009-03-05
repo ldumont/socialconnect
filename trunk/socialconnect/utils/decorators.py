@@ -48,12 +48,8 @@ def exception_handler(function):
         except FacebookError, ex:
             '''
                 This Exception is raised if the proxy_layer get an error from the platform or with the data sent by the platform.
-                The social_context is destroyed and the session is invalidated to try again.
-
             '''
-
-            print ex        
-            
+        
             # token or session error
             if ex.code in [101, 102]:
                 reset_session(platform_id, request)
@@ -63,13 +59,15 @@ def exception_handler(function):
             raise               
                     
         except OpenSocialError, ex:
-            
-            print ex
-            
+            '''
+                This Exception is raised if the proxy_layer get an error from the platform or with the data sent by the platform.
+            '''
+                    
             if ex.code == 100:
                 reset_session(platform_id, request)
                 return HttpResponseRedirect(request.path)
-                
+            
+            # It's another exception    
             raise
             
         except SocialConnectException, ex:
@@ -78,11 +76,8 @@ def exception_handler(function):
                 to synchronize their accounts. 
                 It should be adapted to the platform needs.
             '''
+            
             return HttpResponse(ex.message)
                         
-        #except Exception, ex:
-        #   PlatformAccount.objects.get(platform=platform_id, user=social_context.user).as_leaf_class().invalidate_token()
-        #   del request.session['social_context']
-        #   return direct_to_template(request, 'yasn/error.html', {'error': ex})
         
     return handle
