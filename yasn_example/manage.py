@@ -14,12 +14,10 @@ site_packages_dir = os.path.abspath(os.path.join(project_root_dir, 'site-package
 # besides sys.stdout as the target.
 #sys.stdout = sys.stderr
 
-
-sys.path.insert(1, site_packages_dir)
-sys.path.insert(1, project_root_dir)
-sys.path.insert(1, project_dir)
-#sys.path.insert(0, project_dir2)
-
+for path in (site_packages_dir, project_root_dir, project_dir):
+    if path not in sys.path:
+        sys.path.insert(0, path)
+        
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'yasn_example.settings'
 os.environ['PYTHON_EGG_CACHE'] = os.path.join(project_root_dir, 'tmp')
