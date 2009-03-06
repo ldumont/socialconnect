@@ -94,10 +94,21 @@ CACHE_BACKEND = 'dummy:///'
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
+## YASN settings ##
 LOGIN_URL = '/login/'
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 25
+
+# email sender for password recovering
+EMAIL_SENDER = ''
+
+# template id for "writing a story"
+TEMPLATE_STORY_ID = ''
+# template id for "commenting on a story from someone that does not have an account on Facebook"
+TEMPLATE_COMMENT_AUTHOR_ID = ''
+# template id for "commenting on a story from someone that has an account on Facebook"
+TEMPLATE_COMMENT_TARGET_ID = ''
 
 # Load the local settings
 try:
