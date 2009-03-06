@@ -1,7 +1,8 @@
 from datetime import datetime
-import random 
+from random import *
 import re
 import time
+import string
 from urllib import urlretrieve
 
 from django.conf import settings
@@ -111,11 +112,13 @@ def recover_password(request):
             if recover_form.is_valid():
                 user = User.objects.get(email=recover_form.cleaned_data['email'])
                 
-                # generate a random password only numerical but could be improved to add letters                
-                new_password = random.randint(100000, 999999)
+                # generate a random password only numerical but could be improved to add letters    
+                chars = string.ascii_letters + string.digits
+
+                new_password = "".join(choice(chars) for x in range(6))            
                 
                 # send the new password by email and then save the new password
-                send_mail('YASN: New password', 'Here is your new password for YASN: '+str(new_password), 'postmaster@yasn.tld', [user.email])
+                send_mail('YASN: New password', 'Here is your new password for YASN: '+new_password, settings.EMAIL_SENDER, [user.email])
                 user.set_password(new_password)
                 user.save()
                 
@@ -364,7 +367,7 @@ def remote_story(request, story_id, platform_id):
     social_context = SocialContext.get_or_create_social_context(request, platform_id)
     
     # template data
-    template_id = 53399853449
+    template_id = settings.TEMPLATE_STORY_ID
     domain = Site.objects.get_current().domain
     template_data = {'story_link':'http://'+domain+''+Story.objects.get(id=story_id).get_absolute_url(), 'link':'<a href="http://'+domain+'">YASN</a>'}
     
@@ -452,7 +455,7 @@ def remote_comment(request, story_id, platform_id):
 
     # if the user has no account on the remote platform, send the author as a string 
     if not author_account:
-        template_id = 53403673449
+        template_id = settings.TEMPLATE_COMMENT_AUTHOR_ID
                     
         if author.user.first_name or author.user.last_name == '':
             template_data['author'] = author.user.username
@@ -461,12 +464,12 @@ def remote_comment(request, story_id, platform_id):
         
     # if the user has an account and is the author of the story                         
     elif author == request.user.get_profile():
-        template_id = 53403673449
+        template_id = settings.TEMPLATE_COMMENT_AUTHOR_ID
         template_data['author'] = 'himself'
             
     # if the author has an account on the selected platform, link him on the notification               
     else:
-        template_id = 53403178449
+        template_id = settings.TEMPLATE_COMMENT_TARGET_ID
         target_ids = author_account.remote_id
                         
     # notify the remote platform
