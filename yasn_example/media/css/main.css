@@ -112,7 +112,7 @@ body img {
 
 /* Login Page */
 #login-form {
-    width: 400px;
+    width: 300px;
 }
 
 #login-form .label {
@@ -123,6 +123,15 @@ body img {
 #login-form .field {
     width: 100px;
     height: 25px;
+}
+
+#login-infos {
+    margin-top: 30px;
+    width: 500px;
+}
+
+#login-infos p {
+    text-align: justify;
 }
 
 /* Recover password page */
