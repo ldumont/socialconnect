@@ -38,4 +38,4 @@ Here are a list of the information necessary for some platforms. The list will g
  * Signature method: HMAC_SHA1
  * Token validity: 2592000
  * Support: people
- * Fields correction:: 
+ * Fields correction:
