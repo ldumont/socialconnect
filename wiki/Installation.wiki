@@ -9,7 +9,7 @@ The only specificity of SocialConnect is the creation of an application on each 
 
 == Requirements ==
  * Python 2.5 with [http://www.pythonware.com/products/pil/ PIL]
- * Django revision 9843
+ * Django revision 9973
 
 SocialConnect also requires several external libraries:
  * Python libs:
