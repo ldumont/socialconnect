@@ -88,4 +88,8 @@ YASN needs some specific definition in the settings.py of the project:
 
 ==== Facebook templates ====
 
-To be able to test the notification of activities to Facebook, you have to create the three necessary templates with the [http://developers.facebook.com/tools.php?feed Facebook tool]. The ids need then to be replaced by these of your Facebook templates in the `remote_story()`and `remote_comment()` YASN views.
+To be able to test the notification of activities to Facebook, you have to create the three necessary templates with the [http://developers.facebook.com/tools.php?feed Facebook tool]. The ids provided by Facebook for the templates also need to be set in the settings.py file:
+
+ * TEMPLATE_STORY_ID = 123456789 # A user writes a story on YASN
+ * TEMPLATE_COMMENT_AUTHOR_ID = 123456789 # A user comments on his own story
+ * TEMPLATE_COMMENT_TARGET_ID = 123456789 # A user comments on another user story
