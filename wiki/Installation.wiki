@@ -19,7 +19,7 @@ SocialConnect also requires several external libraries:
  * Django libs:
    * [http://pyfacebook.googlecode.com pyFacebook] (revision 173) `svn checkout http://pyfacebook.googlecode.com/svn/trunk/facebook facebook` 
    * [http://opensocial-python-rest-library.googlecode.com opensocial-python-rest-library] (last revision) `svn checkout http://opensocial-python-rest-library.googlecode.com/svn/trunk/ opensocial`         
-   * [http://oauth.googlecode.com/ oauth] (revision 868) `svn checkout http://oauth.googlecode.com/svn/code/python/oauth oauth`
+   * [http://oauth.googlecode.com/ oauth] (revision 904) `svn checkout http://oauth.googlecode.com/svn/code/python/oauth oauth`
 
 Install or checkout them as usual and be sure that they are available within your Django project.
 
