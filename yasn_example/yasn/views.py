@@ -12,7 +12,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.forms import ValidationError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
@@ -118,7 +118,8 @@ def recover_password(request):
                 new_password = "".join(choice(chars) for x in range(6))            
                 
                 # send the new password by email and then save the new password
-                send_mail('YASN: New password', 'Here is your new password for YASN: '+new_password, settings.EMAIL_SENDER, [user.email])
+                email = EmailMessage('YASN: New password', 'Here is your new password for YASN: '+new_password, settings.EMAIL_SENDER, [user.email])
+                email.send()
                 user.set_password(new_password)
                 user.save()
                 
