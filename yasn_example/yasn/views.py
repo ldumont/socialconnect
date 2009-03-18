@@ -528,8 +528,8 @@ def send_invite_friends(request, platform_id):
             social_context = SocialContext.get_or_create_social_context(request, platform_id)
             
             # text of the invitation
-            text = 'ask you to join him on <a href="'+Site.objects.get_current().domain+'">YASN<a/> to experience a new social network! <a href="'+Site.objects.get_current().domain+''+reverse('signup')+'">Join now!</a>'
-            
+            text = 'ask you to join him on <a href="http://'+Site.objects.get_current().domain+'">YASN<a/> to experience a new social network! <a href="http://'+Site.objects.get_current().domain+''+reverse('signup')+'">Join now!</a>'
+
             # send the invitations
             response = social_context.send_notifications(request, 'send_invite_friends', ids, text, platform_id)
         return direct_to_template(request, 'yasn/message.html', {'message': 'Invitations sent!', 'back': reverse('friends')})
