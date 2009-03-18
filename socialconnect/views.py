@@ -18,7 +18,7 @@ from socialconnect.utils.exceptions import *
 
 @login_required
 @exception_handler
-def fb_after_lgoin(request):
+def fb_after_login(request):
     '''
         Facebook callback. The user is redirected here from the Facebook login page.
     '''
@@ -132,7 +132,7 @@ def oauth_exchange_token(request):
     response = GET(oauth_request.to_url())  # using the header doesn't seems to work on partuza
 
     # access token
-    token =  oauth.OAuthToken.from_string(response)
+    token = oauth.OAuthToken.from_string(response)
     
     # token validity
     token_expire = current_platform.oauth_token_validity + int(time.time())
