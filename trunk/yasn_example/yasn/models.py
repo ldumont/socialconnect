@@ -96,7 +96,7 @@ class StoryComment(models.Model):
     date = models.DateTimeField(default=datetime.datetime.now)
     
     def __unicode__(self):
-        return 'On '+self.story.title+' by '+self.author.username
+        return 'On '+self.story.title+' by '+self.author.user.username
     
     
 
