@@ -94,4 +94,4 @@ class StoryCommentForm(ModelForm):
     '''
     class Meta: 
         model = StoryComment
-        fields = ('body')
+        fields = ('body',)
